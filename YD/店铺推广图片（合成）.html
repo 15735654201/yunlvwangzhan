@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>店铺推广图片（合成）</title>
+		<link rel="stylesheet" type="text/css" href="css/yd_mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yd_g.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yd_style.css"/>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jq/html2canvas-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jq/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {
+				background-color: #ffffff;
+			}
+			.shop_bg {
+				position: fixed;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 99;
+				background-color: #ffffff;
+			}
+			#shop {
+				font-family: "黑体";
+				background: #ffffff url("images/shop_bg.jpg") no-repeat 0 0/100%;
+			}
+			.shop_main {
+				padding: 10px 0 0;
+			}
+			.shop_tit {
+				position: relative;
+				margin: 18px auto;
+				width: 84%;
+			}
+			.shop_tit img {
+				position: absolute;
+				top: 0;
+				left: 6px;
+				height: 18px;
+			}
+			.shop_tit p {
+				color: #ffffff;
+				margin-left: 30px;
+				font-size: 11px;
+				line-height: 20px;
+				white-space: nowrap;
+				overflow:hidden;
+				text-overflow:ellipsis;
+			}
+			.shop_card_box {
+				position: relative;
+				margin: 16px auto;
+				width: 84.6%;
+			}
+			.shop_card_box:after {
+				position: absolute;
+				left: -1%;
+				bottom: -17%;
+				display: inline-block;
+				content: '';
+				width: 102%;
+				height: 60px;
+				background: url("images/card.png")no-repeat 0 bottom/100% 100%;
+			}
+			.shop_card_bg {
+				position: relative;
+				z-index: 2;
+				background: url("images/card_bg.png") no-repeat 0 0/100% 100%;
+			}
+			.shop_card {
+				position: relative;
+				margin: 0 6px;
+				padding: 30px 0 0;
+				border-radius: 10px;
+				background: #ffffff url("images/card.jpg") no-repeat 0 0/100%;
+			}
+			.shop_card .shop_txt {
+				padding-bottom: 6px;
+				position: relative;
+			}
+			.shop_card .shop_txt .shop_img {
+				position: absolute;
+				top: 0;
+				width: 50px;
+				height: 50px;
+				margin: 5px 18px;
+				display: flex;
+				align-items: center;
+				box-sizing: border-box;
+				border-radius: 50%;
+				overflow: hidden;
+				border: 1px solid #c8c8c8;
+			}
+			.shop_card .shop_txt .shop_img img {
+				width: 100%;
+			}
+			.shop_card .shop_txt .shop_info {
+				position: relative;
+				color: #333333;
+				margin: 0 14px 0 86px;
+				font-size: 12px;
+				line-height: 20px;
+			}
+			.shop_card .shop_txt .shop_info ul:first-child {
+				position: absolute;
+			}
+			.shop_card .shop_txt .shop_info ul:last-child {
+				margin-left: 36px;
+			}
+			.shop_card .shop_txt .shop_info ul:last-child li:not(:last-child){
+				white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			}
+			.shop_card h4 {
+				color: #ff5f20;
+				font-size: 15px;
+				font-weight: normal;
+				line-height: 33px;
+				text-align: center;
+				white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+				border-radius: 0 0 10px 10px;
+				border-top: 1px solid #f0f0f0;
+				background-color: #ffffff;
+			}
+			.shop_foot {
+				padding: 34px 0 50px;
+				background-color: #ffffff;
+			}
+			.shop_foot .code_box {
+				position: relative;
+				width: 260px;
+				margin: 0 auto;
+			}
+			#output {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-45.18%);
+			}
+			.btn {
+				padding: ;
+				text-align: center;
+			}
+			.btn button {
+				width: 200px;
+				color: #ffffff;
+				font-size: 14px;
+				line-height: 34px;
+				border-radius: 6px;
+				border: 1px solid #f1b242;
+				background: -webkit-linear-gradient(left, #f7a703, #f86a1b);
+				background: -o-linear-gradient(left, #f7a703, #f86a1b);
+			    background: -moz-linear-gradient(left, #f7a703, #f86a1b);
+			    background: linear-gradient(left, #f7a703, #f86a1b);
+			}
+			.btn p {
+				color: #999999;
+				font-size: 12px;
+				line-height: 48px;
+			}
+			@media screen and (min-width: 375px) {
+				#shop {
+					max-width: 375px;
+					margin: 0 auto;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="shop">
+			<div class="shop_main">
+				<div class="shop_head">
+					<div class="shop_tit">
+						<img src="images/shop.png"/>
+						<p>山西太原四季风旅游有限公司</p>
+					</div>
+					<div class="shop_card_box">
+						<div class="shop_card_bg">
+							<div class="shop_card">
+								<div class="shop_txt">
+									<div class="shop_img">
+										<img src="images/logo.png"/>
+									</div>
+									<div class="shop_info">
+										<ul>
+											<li>姓名：</li>
+											<li>电话：</li>
+											<li>地址：</li>
+										</ul>
+										<ul>
+											<li>曹操操</li>
+											<li>15735654200</li>
+											<li>山西太原南中环桥</li>
+										</ul>
+									</div>
+									
+								</div>
+								<h4>四季风旅游清控店</h4>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="shop_foot">
+					<div class="code_box">
+						<img width="100%" src="images/code_bg.jpg"/>
+						<div id="output"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="shop_bg"></div>
+		<script type="text/javascript">
+			var qrcode=$('#output').qrcode({quiet: 20,background: "#FFF",width: 130,
+  height: 130,text:"http://lxs01.yunlvkeji.xyz/jsp/wap/index/do.jsp?method=lineInfo&lineId=431487"});
+			$(function(){
+				html2canvas(document.querySelector("#shop")).then(canvas => {
+					newImg = document.createElement("img");
+			        newImg.src = canvas.toDataURL("image/jpeg",1.0);
+			        $('body').empty().append(newImg);
+			        newImg.style.width = '100%';
+				});
+			});
+		</script>
+	</body>
+</html>

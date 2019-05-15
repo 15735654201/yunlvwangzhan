@@ -1,0 +1,202 @@
+ @charset "utf-8";
+/* CSS Document */
+* {margin: 0;outline: 0;padding: 0;}
+body {background:#f5f5f5;font-family: "Microsoft Yahei";font-size:1rem;margin: 0;padding: 0;-webkit-overflow-scrolling:initial; color:#666;}
+body, form, ul, ol, li, p, h1, h2, h3, h4, h5, h6, dl, dt, dd, table, fieldset, hr, div {margin: 0;padding: 0;}
+img {border: 0 none;max-width:100%;}
+ul, ol, li {list-style-type: none;}
+:focus { outline: none; }
+a {outline: medium none;text-decoration: none;}
+a:hover {text-decoration: none;}
+em,i{font-style: normal;}
+input[type="button"], input[type="submit"], input[type="reset"] {
+-webkit-appearance: none; border: none; line-height: inherit; height:inherit; padding:0; margin:0;}
+input[type=color], input[type=date], input[type=datetime-local], input[type=datetime], input[type=email], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], input[type=week], select, textarea{border: none; line-height: inherit; height:inherit; padding:0; margin:0;}
+.clearfix{zoom: 1;}
+table{border-collapse:collapse;}
+*, :after, :before {box-sizing: border-box;}
+*, :after, :before, img {-webkit-box-sizing: border-box;}
+input,button,select,textarea{font-family: "Microsoft Yahei"; }
+figure{ margin:0;}
+.clearfix:after{content:""; display:block; visibility:hidden; height:0; clear:both;}
+
+/*-----------------手机端去掉点击时默认边框--------------------*/
+*:focus {outline: none;}
+* { -webkit-tap-highlight-color: transparent; -webkit-appearance: none;  border:0;}  
+/*-----------------字体粗细--------------------*/
+.fw-bold{ font-weight:bold;}
+.fw-normal{ font-weight:normal;}
+/*-----------------浮动定位--------------------*/
+.fl {float: left;}
+.fr {float: right;}
+.pr { position:relative;}
+.pa { position:absolute;}
+.pft{position: fixed; top:0; left:0;}
+.clear{clear:both;}
+/*-----------------字体颜色--------------------*/
+.c-fff{ color:#fff;}
+.c-333{ color:#333;}
+.c-666{ color:#666;}
+.c-000{ color:#000;}
+.c-999{ color:#999;}
+.c-fa5dab{color:#fa5dab;}
+.c-ff7b00{color:#ff7b00;}/*橘色*/
+.c-ffcc31{color:#ffcc31;}/*黄色*/
+.c-ff31b4{color:#ff31b4;}/*玫红色*/
+.c-319dff{color:#319dff;}/*主兰色*/
+.c-40c00b{color:#40c00b;}/*微信*/
+.c-01a0e1{color:#01a0e1;}/*支付宝*/
+.c-f6a82a{color:#f6a82a;}/*快捷支付*/
+.c-f48222{color:#f48222;}/*线下打款*/
+.c-f65926{color:#f65926;}/*对公账号*/
+.c-02bd00{color:#02bd00;}
+.c-d8a803{color:#d8a803;}
+.c-ff2a3e{color:#ff2a3e;}
+/*-----------------背景色--------------------*/
+.bg-fff{ background:#fff;}
+.bg-ddd{ background:#ddd;}
+.bg-f5f5f5{background: #f5f5f5;}
+.bg-319dff{background: #319dff;}
+.bg-ff7b00{background: #ff7b00;}
+.bg-fb6a3b{background: #fb6a3b;}/*橘色*/
+.bg-3ba3fb{background: #3ba3fb;}/*主兰色*/
+.bg-fba33b{background: #fba33b;}/*黄色*/
+.bg-fd7eb1{background: #fd7eb1;}/*粉色*/
+.bg-4adebd{background: #4adebd;}/*绿色*/
+.bg-900f30{background: #900f30;}
+.bg-fad880{background: #fad880;}
+.bg-eba721{background: #eba721;}
+.bg-ff8788{background: #ff8788;}
+.b-6bb9ff{background: #6bb9ff;}
+.bg-64d7df{background: #64d7df;}
+.bg-ff7686{background: #ff7686;}
+.bg-45aad8{background: #45aad8;}
+.rgb-000{background:rgba(0, 0, 0, 0.3);}
+.rgb-255{background: rgba(255, 255, 255, 0.6);}
+/*-----------------边框颜色--------------------*/
+.br5{ border-radius:0.32rem;}
+.br3{ border-radius:0.19rem;}
+.b-none{ border:none;}
+.b-eee{border: 1px solid #eee; -webkit-border-image: url(../images/border.png) 2 stretch;}
+.bb-eee{border-bottom: 1px solid #eee;-webkit-border-image: url(../images/border.png) 2 stretch;}
+.bt-eee{border-top: 1px solid #eee;-webkit-border-image: url(../images/border.png) 2 stretch;}
+.br-eee{border-right: 1px solid #eee;-webkit-border-image: url(../images/border.png) 2 stretch;}
+.bl-eee{border-left: 1px solid #eee;-webkit-border-image: url(../images/border.png) 2 stretch;}
+.bc-eee{border: 1px solid #eee;border-width: 1px 0px;-webkit-border-image: url(../images/border.png) 2 stretch;}
+.bl-ccc{ border-right:1px solid #ccc;}
+.bb-ccc{ border-bottom:1px solid #ccc;}
+/*-----------------水平垂直对齐--------------------*/
+.tl {text-align: left;}
+.tr {text-align: right;}
+.tc {text-align: center;}
+.tin-2{ text-indent:2em;}
+.vt {vertical-align: top;}
+.vm {vertical-align: middle;}
+.vb {vertical-align: bottom;}
+.of-h{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.cur_po{cursor: pointer;}
+.flex-1{flex:1;}
+/*-----------------转换元素--------------------*/
+.dis-n {display: none;}
+.dis-b {display: block;}
+.dis-ib {display: inline-block;}
+/*-----------------宽高--------------------*/
+.wb100 {width: 100%;}
+.wb96 {width: 96%;}
+.wb94 {width: 94%;}
+.wb90 {width: 90%;}
+.wb80 {width: 80%;}
+.wb60 {width: 60%;}
+.wb40 {width: 40%;}
+.wb20 {width: 20%;}
+.wb30{width:30%;}
+.hb100{ height:100%;}
+/*-------------------- 边距 --------------------*/
+.m0-auto{ margin:0 auto;}
+.mb3-3-0-3{ margin:3% 3% 0 3%;}
+.mb3{ margin:3%;}
+.mb0-3{ margin:0 3%;}
+.mb10-0{ margin:10% 0;}
+.mtb10{ margin-top:10%;}
+.mtb8{ margin-top:8%;}
+.mb2-2-0{ margin:2% 2% 0;}
+.mtb2{ margin-top:2%;}
+.mtb3{ margin-top:3%;}
+.mbb2{ margin-bottom:2%;}
+.mbb3{ margin-bottom:3%;}
+.mbb5{ margin-bottom:5%;}
+.mlb3{ margin-left:3%;}
+.mrb3{ margin-right:3%;}
+.mrb10{ margin-right:10%;}
+.mb10{margin-bottom:10px;}
+.mb15{margin-bottom:15%;}
+.mb16{margin-bottom:16%;}
+.mt10{margin-top:10px;}
+.m10{margin:10px 0;}
+.mt8{margin-top:8px;}
+.mt50{margin-top:50px;}
+.mlb10{margin-left: 10px;}
+.pb3{ padding:3%;}
+.pb3-0{ padding:3% 0;}
+.pbb5{ padding-bottom:5%;}
+.ptb30{padding-top:30%;}
+.ptb5{padding-top:5%;}
+.p10{padding:10px;}
+.pt10{padding-top:10px;}
+.ptb10{padding:10px 0;}
+.pb10{padding-bottom:10px;}
+.pr10{padding-right:10px;}
+.con-top{ margin-top:2.5rem;}
+.con-top2{ margin-top:5rem;}
+.con-top3{ margin-top:2.9rem;}
+.con-top4{margin-top:9.3rem;}
+.con-top5{ margin-top:2.6rem;}
+.con-top6{margin-top:11rem;}
+.con-top7{margin-top:17rem;}
+.con-top8{margin-top:8.05rem;}
+.con-top9{margin-top:10rem;}
+.con-top10{margin-top:9rem;}
+.con-bottom{ margin-bottom:3.44rem;}
+.con-bottom2{ margin-bottom:6.88rem;}
+.f12{font-size:.8rem;}
+.pad-top{padding-top: 2.5rem;}
+
+@media only screen and (min-device-width: 360px){
+.con-top{ margin-top:2.625rem;}
+.con-top2{ margin-top:5.25rem;}
+.con-top4{ margin-top:10.5rem;}
+.con-top5{ margin-top:2.9rem;}
+.con-top6{margin-top:11.2rem;}
+.con-top7{margin-top:17rem;}
+.con-top9{margin-top:10.5rem;}
+.con-top10{margin-top:10.3rem;}
+.f12{font-size:.84rem;}
+
+}
+@media only screen and (min-device-width: 375px){
+.con-top{ margin-top:2.75rem;}
+.con-top2{ margin-top:5.5rem;}
+.con-top4{ margin-top:10.9rem;}
+.con-top5{ margin-top:3.1rem;}
+.con-top6{margin-top:11.5rem;}
+.con-top9{margin-top:11rem;}
+.con-top10{margin-top:10.3rem;}
+.f12{font-size:.84rem;}
+}
+
+@media only screen and (min-device-width: 414px){
+.con-top{ margin-top:2.875rem;}
+.con-top2{ margin-top:5.75rem;}
+.con-top4{ margin-top:12rem;}
+.con-top5{ margin-top:3.4rem;}
+.con-top6{margin-top:12rem;}
+.con-top9{margin-top:11.5rem;}
+.con-top10{margin-top:11.3rem;}
+.con-bottom{ margin-bottom:3.57rem;}
+.con-bottom2{ margin-bottom:7.14rem;}
+.f12{font-size:.87rem}
+
+
+}
+
+/*苏沙丽*/

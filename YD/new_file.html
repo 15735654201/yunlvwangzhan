@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="jq/html2canvas.js"></script>
+		<script src="jq/canvas2image.js"></script>
+	</head>
+	<body>
+
+
+
+<div id="wrapper" style="background-color: white"; width="1000px" height="900px">
+
+<img src="images/a.jpg" width= "900px">
+tecno diagnostics
+
+
+</div><!---- End Wrapper ---->
+
+
+<br/>
+<input type="button" id="btnSave" value="Save PNG"/>
+<div id="img-out"></div>
+
+
+<script type="text/javascript">
+$(function() { 
+  $("#btnSave").click(function() { 
+    html2canvas($("#wrapper"), {
+        onrendered: function(canvas) {
+            // Convert and download as image 
+            Canvas2Image.saveAsPNG(canvas); 
+            $("#img-out").append(canvas);
+            // Clean up 
+            //document.body.removeChild(canvas);
+        }
+    });
+});
+}); 
+</script>
+	</body>
+</html>

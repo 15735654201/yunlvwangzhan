@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>推广图片(合成)</title>
+		<link rel="stylesheet" type="text/css" href="css/yd_mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yd_g.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yd_style.css"/>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jq/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<img id="logoimg" src="images/cc.jpg" onerror="logoimg(this);">
+		<div>
+			<div id="output"></div>
+		</div>
+		<script type="text/javascript">
+			//生成二维码图片
+			var qrcode=$('#output').qrcode({quiet: 20,background: "#FFF",text:"http://lxs01.yunlvkeji.xyz/jsp/wap/index/do.jsp?method=lineInfo&lineId=431487"}).hide(),
+				qrcodeSrc = qrcode.find('canvas').get(0).toDataURL('image/jpg');
+			
+			//建立画布
+			var c=document.createElement('canvas'),
+				ctx=c.getContext('2d');
+				
+			//背景图片,公司logo图片
+			function logoimg(obj){
+				obj.src="images/empty.png";
+			}
+			var bgImg = new Image(),qrcodeImg = new Image(),logoImg = document.getElementById("logoimg");
+			bgImg.src = "images/body_bottom.png";
+			qrcodeImg.src = qrcodeSrc;
+			bgImg.onload=function(){
+				c.width=this.width;
+            	c.height=this.height;
+            	ctx.rect(0,0,c.width,c.height);
+				ctx.fillStyle='#fff';
+				ctx.fill();
+				ctx.drawImage(this,0,0,this.width,this.height)
+				var w=60/logoImg.height*logoImg.width;
+				ctx.drawImage(logoImg,66,45,w,60);
+				qrcodeImg.onload=function(){
+					ctx.drawImage(this,283,892,184,184);
+					newImg = document.createElement("img");
+			        newImg.src = c.toDataURL("image/jpeg",1.0);
+			        $('body').empty().append(newImg);
+			        newImg.style.width = '100%';
+				}
+				qrcodeImg.onload();
+			}
+		</script>
+	</body>
+</html>

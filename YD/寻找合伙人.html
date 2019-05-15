@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>寻找合伙人</title>
+		<link rel="stylesheet" type="text/css" href="css/yd_mui.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yd_g.css"/>
+		<link rel="stylesheet" type="text/css" href="css/yd_style.css"/>
+		<script src="js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			html {
+				height: 100%;
+			}
+			body {
+				height: 100%;
+				font-family: "黑体";
+			}
+			#img_box {
+				height: 100%;
+				position: relative;
+				overflow: hidden;
+			}
+			#img_box>img {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#logo_img {
+				position: absolute;
+			}
+			#logo_img img {
+				height: 100%;
+			}
+			button {
+				padding: 0;
+				width: 34%;
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				border: none;
+				background-color: transparent;
+			}
+			button a {
+				display: inline-block;
+				color: #ffffff;
+				width: 100%;
+				font-size: 12px;
+				line-height: 34px;
+				border-radius: 17px;
+				background-color: #e24747;
+			}
+			button a:hover {
+				background-color: #fc8080;
+			}
+			@media (min-width: 750px) {
+				button a {
+					font-size: 16px;
+					line-height: 50px;
+					border-radius: 25px;
+				}
+			}
+			@media (min-width: 1000px) {
+				button a {
+					font-size: 18px;
+					line-height: 60px;
+					border-radius: 30px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="img_box">
+			<img src="images/body_bg1.jpg" width="100%"/>
+			<div id="logo_img">
+				<img src="images/a.png" onerror="logoimg(this);"/>
+			</div>
+		</div>
+		<button><a href="">立即申请</a></button>
+		<script type="text/javascript">
+			function logoimg(obj){
+				obj.src="images/empty.png";
+			}
+			$(window).resize(function(){
+				var body_w=$("body").width();
+				$("#logo_img").css({"height":body_w/750*60+"px","top":body_w/750*45+"px","left":body_w/750*66+"px"});
+				$("button").css("top",body_w+"px");
+				if($("body").width()>=750){
+					$("#img_box").css("min-height",body_w/750*1334+"px");
+				}
+			});
+			$(window).resize();
+		</script>
+	</body>
+</html>
