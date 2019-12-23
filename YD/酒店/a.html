@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>资源详情</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+		<link rel="stylesheet" type="text/css" href="../css/hotelDate.css"/>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/hotelDate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/html2canvas.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#posters {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			#imgBox {
+				width: 94%;
+				position: absolute;
+				top: 50%;
+				left: 3%;
+				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+			}
+		</style>
+	</head>
+	<body class="resourceHotel">
+		<!-- 查看二维码 -->
+		<section id="posters" class="pr tc clearfix">
+			<span id="a" class="bg-fff" style="width: 1px;height: 1px;"></span>
+			<div id="imgBox" class="clearfix">
+				<div id="output"></div>
+				<img id="imgBox1" class="fl" src="" alt="" />
+			</div>
+		</section>
+		<script type="text/javascript">
+			html2canvas($("#a"), {
+				allowTaint: true, //允许污染
+				taintTest: true, //在渲染前测试图片
+				background: "#fff",
+				onrendered: function (canvas) {
+					var ac=canvas.toDataURL('image/jpg');
+					$("#a").hide();
+					var qrcode=$('#output').qrcode({quiet: 20,background: "#FFF", text:"http://www.jq22.com"}).hide();
+					var canvas=qrcode.find('canvas').get(0).toDataURL('image/jpg');
+					var realWidth,realHeight;
+					$("<img/>").attr("src", "../images/body_bg.jpg").load(function() {
+						realWidth = this.width;
+						realHeight = this.height;
+						hecheng();
+					});
+					function hecheng(){
+						draw(function(){
+							$('#imgBox1').attr("src",base64[0]);
+						})	
+					}
+					var data=['../images/body_bg.jpg',ac,canvas],base64=[];
+					function draw(fn){
+						var c=document.createElement('canvas'),
+							ctx=c.getContext('2d');
+						c.width=realWidth;
+						c.height=realHeight;
+						ctx.rect(0,0,c.width,c.height);
+						ctx.fillStyle='#fff';
+						ctx.fill();
+						function drawing(n){
+							if(n<3){
+								var img=new Image;
+								if(n==0){
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,0,0,realWidth,realHeight);
+										drawing(n+1);//递归
+									}
+								}else if(n==1) {
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,20,42,realWidth*0.25,realWidth*0.25);
+										drawing(n+1);//递归
+									}
+								}else {
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,32,53,realWidth*0.222,realWidth*0.222);
+										drawing(n+1);//递归
+									}
+								}
+							}else{
+								//保存生成作品图片
+								base64.push(c.toDataURL("image/jpeg",0.8));
+								//alert(JSON.stringify(base64));
+								fn();
+							}
+						}
+						drawing(0);
+					}
+				}
+			});
+		</script>
+	</body>
+</html>

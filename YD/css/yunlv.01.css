@@ -1,0 +1,304 @@
+/* 酒店订单状态 */
+body.hotelOrderStatus {
+	background: #f1f4f8 url(../images/jdbg.png) no-repeat top/100%;
+}
+.hotelOrderStatus header {
+	height: 56px;
+	line-height: 56px;
+}
+.hotelOrderStatus header .mui-icon {
+	margin: 16px 0!important;
+}
+.hotelOrderStatus header .mui-title {
+	font-size: 19px;
+	text-align: left;
+	font-weight: bold;
+	text-indent: 0.5em;
+	line-height: inherit;
+}
+.hotelOrderStatus header~.mui-content {
+	padding-top: 56px;
+}
+.hotelOrderStatus footer~.mui-content {
+	padding-bottom: 50px;
+}
+.hotelOrderStatus .cardBox {
+	padding: 0 4%;
+}
+.hotelOrderStatus .headCard,
+.hotelOrderStatus .footCard {
+	padding: 0;
+}
+.hotelOrderStatus .headCard>div ,
+.hotelOrderStatus .footCard>li {
+	padding: 0 4%;
+}
+.hotelOrderStatus .headCard h4,
+.hotelOrderStatus .footCard h4 {
+	color: #3c4854;
+	font-size: 15px;
+	line-height: inherit;
+}
+.hotelOrderStatus .headCard>div:first-child {
+	padding-top: 14px;
+}
+.hotelOrderStatus .headCard>div>a.tip {
+	position: relative;
+	color: #6370da;
+	font-size: 12px;
+	padding: 8px 14px 10px;
+}
+.hotelOrderStatus .headCard>div>a:before {
+	display: inline-block;
+	line-height: normal;
+	position: absolute;
+	top: 11px;
+	left: 0;
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	content: "\e747";
+	font-family: "iconfont";
+}
+.hotelOrderStatus .headCard .btnBoxs .button {
+	font-size: 16px;
+	padding: 0;
+	width: 49%;
+	height: 48px;
+	margin: 12px 0;
+	border-radius: 6px;
+	-webkit-appearance: button;
+	vertical-align: middle;
+}
+.hotelOrderStatus .Box2 strong {
+	display: inline-block;
+	height: 46px;
+	color: #ed6c18;
+	font-size: 16px;
+}
+.hotelOrderStatus .Box2 .progress>p>span:after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0 8px;
+	display: inline-block;
+	content: "\e782";
+	font-family: "iconfont";
+}
+.hotelOrderStatus .Box2 .progress.shut>p>span:after {
+	content: "\e783";
+}
+.hotelOrderStatus .Box2 .progress>div>p {
+	position: relative;
+	top: -2px;
+	font-size: 12px;
+	line-height: normal;
+}
+.hotelOrderStatus .Box2 .progress ul {
+	display: flex;
+	padding: 5px 0 20px;
+}
+.hotelOrderStatus .Box2 .progress ul>li {
+	position: relative;
+	flex: 1;
+	color: #09a61c;
+	font-size: 12px;
+	line-height: 18px;
+	text-align: center;
+}
+.hotelOrderStatus .Box2 .progress ul>li:first-child {
+	z-index: 4;
+}
+.hotelOrderStatus .Box2 .progress ul>li:nth-child(2) {
+	z-index: 3;
+}
+.hotelOrderStatus .Box2 .progress ul>li.ative~li {
+	color: #8e9293;
+}
+.hotelOrderStatus .Box2 .progress ul>li:before {
+	position: absolute;
+	top: 10px;
+	left: 4px;
+	content: "";
+	width: 8px;
+	height: 8px;
+	box-shadow: 0 0 5px 0 rgba(9,166,28,0.5);
+	border-radius: 50%;
+	background-color: #09a61c;
+}
+.hotelOrderStatus .Box2 .progress ul>li.ative~li:before {
+	background-color: #3c4854;
+	box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+}
+.hotelOrderStatus .Box2 .progress ul>li:nth-child(2):before {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.hotelOrderStatus .Box2 .progress ul>li:last-child:before {
+	left: auto;
+	right: 4px;
+}
+.hotelOrderStatus .Box2 .progress>div {
+	height: 105px;
+	overflow: hidden;
+	transition: height 0.2s;
+}
+.hotelOrderStatus .Box2 .progress.shut>div {
+	height: 0;
+}
+.hotelOrderStatus .Box2 .progress ul>li+li>div:before {
+	position: absolute;
+	top: 13px;
+	right: 12px;
+	content: "";
+	width: 136%;
+	height: 2px;
+	z-index: 2;
+	background-color: #09a61c;
+}
+.hotelOrderStatus .Box2 .progress ul>li:nth-child(2)>div:before {
+	right: 54%;
+}
+.hotelOrderStatus .Box2 .progress ul>li.ative~li>div:before {
+	background-color: #ebebeb;
+}
+.hotelOrderStatus .Box2 .progress ul>li>div {
+	padding-top: 28px;
+}
+.hotelOrderStatus .Box2>li.p_10 {
+	padding: 10px 0;
+	line-height: 26px;
+}
+.hotelOrderStatus .Box3>li:first-child b {
+	font-size: 16px;
+	line-height: 20px;
+	margin: 13px 0;
+	display: -webkit-box;
+	padding-right: 74px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.hotelOrderStatus .Box3>li:first-child a.tip {
+	position: absolute;
+	top: -13px;
+	right: 0;
+	color: #6370da;
+	height: 46px;
+	font-size: 12px;
+	font-weight: normal;
+}
+.hotelOrderStatus .Box3>li:first-child p.elip {
+	position: relative;
+	top: -4px;
+	font-size: 12px;
+	font-weight: normal;
+	margin-bottom: 10px;
+	line-height: normal;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div {
+	color: #3c4854;
+	line-height: normal;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div>p {
+	color: #3c4854;
+	margin: 13px 0;
+	line-height: 20px;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div>p:first-child {
+	padding-right: 120px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div>p:nth-child(2) {
+	position: absolute;
+	top: -13px;
+	right: 0;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div>p:nth-child(2)>span {
+	padding-right: 17px;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div>p:nth-child(2)>span:after {
+	display: inline-block;
+	content: "";
+	height: 1em;
+	width: 1px;
+	position: absolute;
+	top: 50%;
+	right: 8px;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	background-color: #3c4854;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time {
+	font-size: 12px;
+	padding: 10px 0;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time>span {
+	float: left;
+	line-height: 19px;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time>span em {
+	display: inline-block;
+	line-height: 19px;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time>span:nth-child(2) {
+	width: 24%;
+	padding-top: 19px;
+	text-align: center;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time>span:nth-child(2):after {
+	display: inline-block;
+	content: "";
+	height: 1px;
+	width: 89%;
+	position: absolute;
+	top: 28px;
+	left: 50%;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	background-color: #b7b7b7;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time>span>i {
+	display: block;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>div.time>span:nth-child(2)>i{
+	display: inline-block;
+	border-radius: 9px;
+	width: 50%;
+	min-width: 45px;
+	position: relative;
+	z-index: 1;
+	font-size: 11px;
+	line-height: 17px;
+	border: 1px solid #b7b7b7;
+	background-color: #ffffff;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>ul>li {
+	border: none;
+	line-height: 28px;
+}
+.hotelOrderStatus .Box3>li:nth-child(2)>ul {
+	margin: 9px 0;
+}
+.hotelOrderStatus .footCard>li:not(:first-child) {
+	border: none;
+	line-height: 26px;
+}
+.hotelOrderStatus .footCard>li:nth-child(2) {
+	padding-top: 12px;
+}
+.hotelOrderStatus .footCard>li:last-child {
+	padding-bottom: 12px;
+}
+.hotelOrderStatus .footCard>li>div{color: #3c4854;}
+#rules.roomBox {
+	top: 50%;
+}
+#rules div.pre_line {
+	color: #3c4854;
+	font-size: 14px;
+	margin: 10px 0;
+	line-height: 28px;
+}

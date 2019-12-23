@@ -1,0 +1,581 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>资源详情</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+		<link rel="stylesheet" type="text/css" href="../css/hotelDate.css"/>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/hotelDate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/html2canvas.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/toFixed_m.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#posters {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: -1;
+				background-color: rgba(0,0,0,.3);
+			}
+			#posters.mui-popover {
+				z-index: 999;
+			}
+			#imgBox {
+				width: 94%;
+				position: absolute;
+				top: 50%;
+				left: 3%;
+				text-align: center;
+				transform: translateY(-50%);
+				-webkit-transform: translateY(-50%);
+			}
+			#across footer {
+				height: 60px!important;
+				box-shadow: none!important;
+			}
+			#across footer button {
+				padding: 0;
+				height: 44px;
+				vertical-align: middle;
+				line-height: 42px;
+				width: 100%;
+				border-radius: 6px;
+			}
+		</style>
+	</head>
+	<body class="resourceHotel">
+		<footer class="mui-bar mui-bar-tab">
+			<a class="tab-item" href="javascript:;" onclick="toCollection(this);">
+				<input type="hidden" id="isCollection" value="0">
+				<span class="iconfont">&#xe603;</span>
+				<!-- 
+				<span class="iconfont active">&#xe604;</span>
+				-->
+				<p>收藏</p>
+			</a>
+			<a class="tab-item" href="#contact"><span class="iconfont">&#xe6fe;</span>联系客服</a>
+		</footer>
+		<section class="mui-content">
+			<!-- 轮播 -->
+			<div class="mui-slider lunbo">
+				<div class="mui-slider-group">
+					<!--第一个内容区容器-->
+					<div class="mui-slider-item">
+						<!-- 具体内容 -->
+						<img src="../images/hotel.png" alt="" />
+					</div>
+					<!--第二个内容区-->
+					<div class="mui-slider-item">
+						<!-- 具体内容 -->
+						<img src="../images/hotel.png" alt="" />
+					</div>
+				</div>
+				<div class="lunboTitle">
+					<h4>如家经济酒店</h4>
+					<p>标准五星级</p>
+				</div>
+				<span class="lunboNum">20张</span>
+			</div>
+			<!-- 地址 -->
+			<p class="tr color_orange copyContent" style="line-height: 26px;" data-clipboard-action="copy" data-clipboard-target="#shareUrl" onclick="">复制</p>
+			<div class="address">山西省太原市小店区南中环控基地</div>
+			<!-- 入住/离店时间 -->
+			<div class="price_time">
+				<div class="hotelTime">
+					<div class="clearfix" id="hotelTime">
+						<div>
+							<i></i>
+							<input type="hidden" id="startDate" value="2019-08-20"/>
+							<span></span>
+						</div>
+						<div class="numall">共1晚</div>
+						<div>
+							<i></i>
+							<input type="hidden" id="endDate" value="2019-08-22"/>
+							<span></span>
+						</div>
+					</div>
+					<a class="fr across" href="#across">1间</a>
+				</div>
+			</div>
+			<!-- 商品信息 -->
+			<ul class="goodsBox">
+				<li class="clearfix">
+					<div class="goodsImg">
+						<img src="../images/hotel.png" alt="" />
+					</div>
+					<div class="goodsInfo">
+						<a href="#item1">标准房标准房标</a>
+						<p>无早餐</p>
+					</div>
+					<div class="goodsPrix">
+						<span>2888.0</span>
+						<button type="button" class="reserve" data="resourceId=${resource.id}&goodsId=${goodsItem.id}&resourceType=${resource.resourceType}&shareMemberId=${shareMemberId}&shareMemberType=${shareMemberType}">预定</button>
+					</div>
+					<div id="item1" class="roomBox mui-popover mui-popover-action mui-popover-bottom">
+						<h3>商务套</h3>
+						<span class="mui-icon mui-icon-closeempty guan"></span>
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="imgBox">
+									<img src="../images/hotel.png" alt="">
+								</div>
+								<div class="p0_4">
+									<h4>商务套</h4>
+									<p>标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星</p>
+								</div>
+							</div>
+						</div>
+						<div class="roomBottom">
+							<span>2888.0</span>
+							<button type="button" class="reserve" data="resourceId=${resource.id}&goodsId=${goodsItem.id}&resourceType=${resource.resourceType}&shareMemberId=${shareMemberId}&shareMemberType=${shareMemberType}">预订</button>
+						</div>
+					</div>
+					<script type="text/javascript">
+						var scroll = mui('#item1 .mui-scroll-wrapper').scroll({deceleration: 0.0005}); 
+						document.querySelector('#item1 .mui-scroll-wrapper' ).addEventListener('scroll', function (e) {
+							if(scroll.y<0 && Math.abs(scroll.y)>225){
+								$(e.srcElement).parent().siblings("h3").fadeIn();
+							}else {
+								$(e.srcElement).parent().siblings("h3").fadeOut();
+							}
+						});
+					</script>
+				</li>
+				<li class="clearfix">
+					<div class="goodsImg">
+						<img src="../images/hotel.png" alt="" />
+					</div>
+					<div class="goodsInfo">
+						<a href="#item2">标准房标准房标准房标准房标准房标准房标准房</a>
+						<p>无早餐</p>
+					</div>
+					<div class="goodsPrix">
+						<span>288.0</span>
+						<button type="button" class="reserve" data="resourceId=${resource.id}&goodsId=${goodsItem.id}&resourceType=${resource.resourceType}&shareMemberId=${shareMemberId}&shareMemberType=${shareMemberType}">预定</button>
+					</div>
+					<div id="item2" class="roomBox mui-popover mui-popover-action mui-popover-bottom">
+						<h3>商务套</h3>
+						<span class="mui-icon mui-icon-closeempty guan"></span>
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div class="imgBox">
+									<img src="../images/hotel.png" alt="">
+								</div>
+								<div class="p0_4">
+									<h4>商务套</h4>
+									<p>标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星标准五星</p>
+								</div>
+							</div>
+						</div>
+						<div class="roomBottom">
+							<span>2888.0</span>
+							<button type="button" class="reserve" data="resourceId=${resource.id}&goodsId=${goodsItem.id}&resourceType=${resource.resourceType}&shareMemberId=${shareMemberId}&shareMemberType=${shareMemberType}">预订</button>
+						</div>
+					</div>
+					<script type="text/javascript">
+						var scroll = mui('#item2 .mui-scroll-wrapper').scroll({deceleration: 0.0005}); 
+						document.querySelector('#item2 .mui-scroll-wrapper' ).addEventListener('scroll', function (e) {
+							if(scroll.y<0 && Math.abs(scroll.y)>225){
+								$(e.srcElement).parent().siblings("h3").fadeIn();
+							}else {
+								$(e.srcElement).parent().siblings("h3").fadeOut();
+							}
+						});
+					</script>
+				</li>
+			
+				<li class="tc kong">
+					<p>该日期暂无可预订产品</p>
+					<p>请尝试更换入住和离店时间或查看其他酒店</p>
+				</li>
+			</ul>
+			<!-- 评价 -->
+			<div class="lump price_time">
+				<div class="clearfix">
+					<h3 class="fl mark">4.8</h3>
+					<a class="fr record" href="">0条评价</a>
+				</div>
+			</div>
+			<!-- 预定须知 -->
+			<div class="lump">
+				<h2 class="moduleTit"><span>预定须知</span></h2>
+				<div class="pre_line text con"><div>菜鸟教程提供了最全的</div><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p><p>web 技术教程。</p></div>
+				<a class="gengduo" href="javascript:;">查看更多</a>
+			</div>
+			<!-- 退改规则 -->
+			<div class="lump">
+				<h2 class="moduleTit"><span>退改规则</span></h2>
+				<div class="pre_line text con">好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好；
+						好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好好</div>
+				<a class="gengduo" href="javascript:;">查看更多</a>
+			</div>
+			<!-- 资源详情 -->
+			<div class="lump">
+				<h2 class="moduleTit"><span>资源详情</span></h2>
+				<div class="text"><p style="text-indent:28px"><strong><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">地址：</span></span></strong><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">太原</span>&nbsp;晋源区&nbsp;晋祠风景名胜旅游区669号&nbsp;</span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px">1957年开业&nbsp;&nbsp;2006年装修&nbsp;&nbsp;348间房&nbsp;&nbsp;</span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px">&nbsp;<strong>电话</strong>0351-6099999 传真0351-6020062</span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">山西晋祠宾馆位于太原市西南</span>20公里处悬翁山麓，与全国著名旅游胜地晋祠毗邻。</span><span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">　　宾馆占地面积</span>518亩，绿化覆盖率为70%，以其独特的皇家园林特点和别墅建筑风格博得了“花园别墅”和山西“钓鱼台”之誉。</span><span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px">　　2006年6月，晋祠宾馆完成了划时代的改造与建设。园林环境融中国传统造园艺术与西方古典造园艺术于一体，寓中国民族文化、西方文化和三晋文化于一炉，处处超凡脱俗，清新高雅。园中有园，景中有景，景随步移，天然成趣的皇家园林，置身其中令人留恋忘返，遐思无限。</span><span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">　　山西晋祠宾馆现有十一幢风格迥异、构思新颖、设计独特的别墅式接待楼，古朴庄重，高雅大方，富丽堂皇，呈现出至尊风采。目前拥有中西式的各类客房及套间。装饰典雅、风格各异的中西餐厅、宴会厅</span>29个，可容纳1000人。</span><span style=";font-family:宋体;font-size:14px"><br></span>　　<span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px">　　山西晋祠宾馆的餐饮不仅荟萃粤、川、淮扬、晋菜四大菜系，汇聚山西面食之精华，而且通过不断的研究、探索与创新，逐步推出了国宴和官府菜系列，形成了独具特色的国宾馆宴会和自助餐文化，深受宾客好评。</span><span style=";font-family:宋体;font-size:14px"><br></span>　　<span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">　　大中小型会议室</span>29个，适于举办各类大中小型会议、学术研讨会、招待会、庆贺典礼和商务洽谈会，其中国际会议中心具有16道同声传译设备、并具有即时翻译、可视电话会议等功能，可同时容纳600人。</span><span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">　　国宾会所设有省城最高档的全自动循环消毒恒温游泳馆、标准室内网球场、</span>KTV包间、冰火桑拿浴、水疗按摩、休闲吧等设施，是理想的休闲、健身、娱乐场所。无论是居家旅行、商务办公、自驾车旅游，还是团队会议、常住外宾专家，宾馆都是最理想的选择。</span><span style=";font-family:宋体;font-size:14px"><br></span><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">　　山西晋祠宾馆于</span>2008年被世界旅游联合会授予“全球最佳会议酒店”、2009年荣获“中国饭店业辉煌60年中国酒店金马奖”、“中国名酒店组织成员”、“中国饭店业先进集体”、“五叶级中国绿色饭店”，也是中央党政机关出差和会议定点饭店。</span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">入住时间：</span>12:00以后&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;离店时间：14:00以前</span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px">· &nbsp;形式：自助餐</span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px"><br></span></p><p style="text-indent:28px"><span style=";font-family:宋体;font-size:14px">· &nbsp;价格：RMB&nbsp;68/人</span></p><p style="text-indent:56px"><span style=";font-family:宋体;font-size:14px"><span style="font-family:宋体">营业时间：星期一、二、三、四、五、六、日</span>&nbsp;07:00至09:00</span></p><p><br></p></div>
+			</div>
+		</section>
+		<!--联系客服-->
+		<section id="contact" class="contact mui-popover mui-popover-action mui-popover-bottom">
+			<ul>
+				<li>
+					<a href="tel:15735654201">客服电话 &nbsp;&nbsp;0351-5888688</a>
+				</li>
+				<li>
+					<button type="button" style="font-weight: bold;">取消</button>
+				</li>
+			</ul>
+		</section>
+		<!-- 选择日期 -->
+		<section class="mask_calendar">
+			<div class="calendar"></div>
+		</section>
+		<!-- 房间数 -->
+		<section id="across" class="mui-popover mui-popover-action mui-popover-bottom">
+			<div class="clearfix p0_4" style="padding-bottom: 100px;padding-top: 8px;">
+				<div class="fl" style="line-height: 30px;margin: 12px 0;">房间数</div>
+				<div class="mui-numbox" id="jianNum" data-numbox-min='1' style="float: right;margin: 12px 0;">
+					<!-- "-"按钮，点击可减小当前数值 -->
+					<button class="mui-btn mui-numbox-btn-minus" type="button">-</button>
+					<input type="number" class="mui-numbox-input" />
+					<!-- "+"按钮，点击可增大当前数值 -->
+					<button class="mui-btn mui-numbox-btn-plus" type="button">+</button>
+				</div>
+			</div>
+			<footer class="mui-bar mui-bar-tab p0_4">
+				<button type="button" class="f-18 btnNormal">确定</button>
+			</footer>
+		</section>
+		<!-- 推广 -->
+		<section class="extendBox">
+			<a href="#extend" class="extendBtn"><span>推广</span></a>
+		</section>
+		<section id="extend" class="extend mui-popover mui-popover-action">
+			<h4 class="borderShadow">立即推广</h4>
+			<span class="iconfont c-fff cha" onclick="mui('#extend').popover('toggle');">&#xe701;</span>
+			<ul>
+				<li>
+					<p>
+						<span>方法1</span>
+						<span>微信内直接分享 </span>
+					</p>
+					<div>
+						<p>点击微信右上角<span class="iconfont">&#xe735;</span></p>
+						<p>通过【发送给朋友】【分享到朋友圈】推广</p>
+					</div>
+				</li>
+				<li>
+					<p>
+						<span>方法2</span>
+						<span>复制以下链接，转发推广</span>
+					</p>
+					<div>
+						<p class="tr color_orange copyContent" style="line-height: 26px;" data-clipboard-action="copy" data-clipboard-target="#shareUrl" onclick="">复制</p>
+						<div>
+							<input type="text" id="shareUrl" value="11111111111" readonly="readonly" />
+						</div>
+					</div>
+				</li>
+				<li>
+					<p>
+						<span>方法3</span>
+						<span>使用二维码推广</span>
+					</p>
+					<p>点击右侧图片获取二维码</p>
+					<a class="code" href="#posters">
+						<img src="" alt="" />
+					</a>
+				</li>
+			</ul>
+			<a class="btnhehuo" href="">
+				<button type="button" class="btnNormal2">合伙人中心</button>
+			</a>
+		</section>
+		<!-- 查看二维码 -->
+		<section id="posters">
+			<span id="bai" class="bg-fff" style="width: 1px;height: 1px;"></span>
+			<div id="imgBox">
+				<div id="output"></div>
+				<img id="imgBox1" src="" alt="" />
+			</div>
+		</section>
+		<script type="text/javascript">
+			//轮播图动滚动
+			var slider = mui("#slider");
+				slider.slider({
+				interval: 2000
+			});
+			//关闭
+			$(".roomBox .guan").on("tap",function () {
+				var id = "#"+$(this).parent().attr("id");
+				mui(id+" .mui-scroll-wrapper").scroll().scrollTo(0,0);
+				mui(id).popover('toggle');
+			});
+
+			//查看更多
+			$(".con").each(function(){
+				if($(this).height()>72){
+					$(this).addClass("up");
+				}
+			});
+			$(".gengduo").on("tap",function(){
+				$(this).toggleClass("up");
+				$(this).prev().toggleClass("up");
+				if($(this).hasClass("up")){
+					$(this).text("收起");
+				}else {
+					$(this).text("查看更多");
+				}
+			});
+			//用户收藏
+			function toCollection(obj) {
+				var status = $("#isCollection").val();
+				if(status == 1){
+					status = 0;
+				}else{
+					status = 1;
+				}
+				$("#isCollection").val(status);
+//				$.ajax({
+//					url: "${ctx}/jsp/wap/collection/do/ajaxCollection.jsp",
+//					type: "POST",
+//					dataType: "json",
+//					data: {pertinentId: '${resource.id}', status: status, type:<%=Cnst.Classify.CLASSIFY_TYPE_RESOURCE%>},
+//					success: function (data) {
+						if (status == 1) {
+							$(obj).children("span").html('&#xe604;').addClass("active")
+						} else {
+							$(obj).children("span").html('&#xe603;').removeClass("active");
+						}
+//						showMsg(data.message);
+//					}
+//				});
+			}
+			//联系客服
+			$("#contact button").on("tap",function(){
+				mui("#contact").popover('toggle');
+			});
+			//转换日期
+			function dateFormat(Time, pattern){
+				var d = new Date(Time);
+				d.getTime();
+				var date = {
+					"M+": d.getMonth() + 1,
+					"d+": d.getDate(),
+					"h+": d.getHours(),
+					"m+": d.getMinutes(),
+					"s+": d.getSeconds(),
+					"q+": Math.floor((d.getMonth() + 3) / 3),
+					"S+": d.getMilliseconds()
+				};
+				if (/(y+)/i.test(pattern)) {
+					pattern = pattern.replace(RegExp.$1, (d.getFullYear() + '').substr(4 - RegExp.$1.length));
+				}
+				for (var k in date) {
+					if (new RegExp("(" + k + ")").test(pattern)) {
+						pattern = pattern.replace(RegExp.$1, RegExp.$1.length == 1
+							? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+					}
+				}
+				return pattern;
+			}
+			//选择日期
+			var top;
+			$('#hotelTime').on('tap',function () {
+				$('.mask_calendar').fadeIn(200);
+			});
+			$('.mask_calendar').on('tap',function (e) {
+				if(e.target.className == "mask_calendar"){
+					$('.calendar').slideUp(200);
+					$('.mask_calendar').fadeOut(200);
+				}
+			});
+			var flag = true;
+			$('#hotelTime').calendarSwitch({
+				selectors : {
+					sections : ".calendar"
+				},
+				index : 6,	  //展示的月份个数
+				animateFunction : "slideToggle",		//动画效果
+				controlDay: false,//知否控制在daysnumber天之内，这个数值的设置前提是总显示天数大于90天
+				daysnumber : "",	 //控制天数
+	//			comeColor : "#01AAED",	   //入住颜色
+	//			outColor : "#01AAED",	  //离店颜色
+	//			comeoutColor : "rgba(30, 159, 255, 0.1)",		//入住和离店之间的颜色
+				startDate: "2019-08-20",
+				endDate: "2019-09-22",
+				callback:function(startDate,endDate,NumDate,startWeek,endWeek){//回调函数
+					$('.mask_calendar').fadeOut(200);
+					//入住日期，离店日期，共多少晚，入住周几，离店周几
+					//console.log(startDate,endDate,NumDate,startWeek,endWeek);
+					$('#startDate').val(startDate);
+					$('#startDate').prev("i").text(startWeek+"入住");
+					$('#startDate').next("span").text(dateFormat(startDate,"MM月dd日"));
+					$('#endDate').val(endDate);
+					$('#endDate').prev("i").text(endWeek+"离店");
+					$('#endDate').next("span").text(dateFormat(endDate,"MM月dd日"));
+					$('.numall').text("共"+NumDate+"晚");
+				}
+			});
+			//房间数
+			var num = 1
+			$("#across footer button").on("tap",function(){
+				mui("#across").popover('toggle');
+				num = mui("#jianNum").numbox().getValue();
+				$(".across").text(num+"间");
+			});
+			mui('body').on('tap', '.mui-backdrop', function() {
+				if($("#across").css("display")!="none"){
+					$("#jianNum").find("input").val(num);
+				}
+			});
+			//预订
+			$(".reserve").on("tap",function(){
+				var data = $(this).attr("data");
+				var startDate = $('#startDate').val();
+				var endDate = $('#endDate').val();
+				var Num = mui("#jianNum").numbox().getValue();
+//				window.location.href="${ctx}/jsp/wap/resource/do.jsp?method=calender&"+data+"&startDate="+startDate+"&endDate="+endDate+"&Num"+Num;
+			});
+			//推广
+			var imgSrc = "../images/body_bg.jpg";
+			html2canvas($("#bai"), {
+				allowTaint: true, //允许污染
+				taintTest: true, //在渲染前测试图片
+				background: "#fff",
+				onrendered: function (canvas) {
+					var ac=canvas.toDataURL('image/jpg');
+					var qrcode=$('#output').qrcode({
+							quiet: 20,
+							background: "#FFF", 								text:"http://lxs01.yunlvkeji.xyz:8888/jsp/wap/index/do.jsp?method=resourceInfo&resourceIddthprotld=378290&shareMemberId=12724&shareMemberType=3&joinMemberId=fLcIplcIjgcI29"
+						}).hide();
+					var canvas=qrcode.find('canvas').get(0).toDataURL('image/jpg');
+					$(".code img").attr("src",canvas);
+					var realWidth,realHeight;
+					
+					function hecheng(){
+						draw(function(){
+							if(imgSrc == ""){
+								$('#imgBox1').css("width","75%")
+							}
+							$('#imgBox1').attr("src",base64[0]);
+							$('#posters').addClass("mui-popover mui-popover-action");
+						})	
+					}
+					var data=[imgSrc,ac,canvas],base64=[];
+					function draw(fn){
+						var c=document.createElement('canvas'),
+							ctx=c.getContext('2d');
+						c.width=realWidth;
+						c.height=realHeight;
+						ctx.rect(0,0,c.width,c.height);
+						ctx.fillStyle='#fff';
+						ctx.fill();
+						function drawing(n){
+							if(n<data.length && data[0] !=""){
+								var img=new Image;
+								if(n==0){
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,0,0,realWidth,realHeight);
+										drawing(n+1);//递归
+									}
+								}else if(n==1) {
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,20,42,realWidth*0.25,realWidth*0.25);
+										drawing(n+1);//递归
+									}
+								}else {
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,32,53,realWidth*0.222,realWidth*0.222);
+										drawing(n+1);//递归
+									}
+								}
+							}else if(n<data.length && data[0] ==""){
+								var img=new Image;
+								if(n==0){
+										drawing(n+1);//递归
+								}else if(n==1) {
+									img.src=data[n];
+									console.log(data[n])
+									img.onload=function(){
+										ctx.drawImage(img,0,0,realWidth,realWidth);
+										drawing(n+1);//递归
+									}
+								}else {
+									img.src=data[n];
+									img.onload=function(){
+										ctx.drawImage(img,19,20,realWidth*0.9,realWidth*0.9);
+										drawing(n+1);//递归
+									}
+								}
+							}else {
+								//保存生成作品图片
+								base64.push(c.toDataURL("image/jpeg",0.8));
+								//alert(JSON.stringify(base64));
+								fn();
+							}
+						}
+						drawing(0);
+					}
+					if(imgSrc !=""){
+						var img = new Image();
+						img.src = imgSrc;
+						$(img).on("load error onreadystatechange",function(e){
+							if (e.type === "error") {
+								$(".code").attr("href","javascript:code();");
+							}else {
+								realWidth = this.width;
+								realHeight = this.height;
+								hecheng();
+							}
+						});
+					}else {
+						realWidth = $(window).width();
+						realHeight = $(window).width();
+						hecheng();
+					}
+				}
+			});
+			$("#posters").on("tap",function(){
+				mui("#posters").popover('toggle');
+			});
+			function code(){
+				showMsg("海报加载失败！");
+			}
+			window.scroll = function(){};
+			//复制到前切板
+			var clipboard = new Clipboard('.copyContent');
+			clipboard.on('success', function (e) {
+				showMsg("复制成功");
+			});
+			clipboard.on('error', function (e) {
+				showMsg("复制失败");
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>我的订单</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script> 
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body class="myOrder">
+		<header class="mui-bar mui-bar-nav tab">
+			<div class="mui-segmented-control">
+				<a class="mui-control-item mui-active">全部订单</a>
+				<a class="mui-control-item">待支付(100)</a>
+				<a class="mui-control-item">未出行</a>
+				<a class="mui-control-item">待评价</a>
+				<a class="mui-control-item">待签署</a>
+				<a class="mui-control-item">取消/退单</a>
+			</div>
+		</header>
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item" href="#classify">
+				<span class="mui-icon iconfont">&#xe689;</span>
+				<span class="mui-tab-label">全部分类</span>
+			</a>
+		</nav>
+		<div id="classify" class="mui-popover mui-popover-action mui-popover-bottom">
+			<h3>选择需要筛选的订单类型</h3>
+			<ul>
+				<li class="active">全部分类</li>
+				<li>旅游线路</li>
+				<li>景点门票</li>
+				<li>美食美餐</li>
+				<li>酒店旅馆</li>
+				<li>出行车辆</li>
+			</ul>
+		</div>
+		<section class="mui-content mui-scroll-wrapper">
+			<ul class="orderList mui-scroll">
+				<li class="hotelOrder">
+					<a href="">
+						<h2 class="pr">
+							<p class="pr_130">
+								<span>如家快捷酒店如家快捷酒店</span>
+							</p>
+							<p>待支付，<span class="time_icon">12:30:00</span></p>
+						</h2>
+						<div class="orderInfo">
+							<div>
+								<p>19-07-05 至 19-07-081 / 1晚</p>
+								<p>
+									<span>成人/2</span>
+									<span>成人/2</span>
+									<span>成人/2</span>
+								</p>
+							</div>
+							<p>
+								<span>233</span>
+							</p>
+						</div>
+					</a>
+					<div class="orderbtn clearfix">
+						<a href="">
+							<button type="button" class="green">微信支付</button>
+						</a>
+						<a href="">
+							<button type="button" class="orange">快捷支付</button>
+						</a>
+						<a href="">
+							<button type="button">取消订单</button>
+						</a>
+					</div>
+				</li>
+				<li class="ticketsOrder">
+					<h2 class="clearfix">
+						<p class="fl">景点、游乐园门票</p>
+						<p class="fr">未出行</p>
+					</h2>
+					<div class="orderInfo">
+						<div>
+							<p>19-07-05 至 19-07-081 / 1晚</p>
+							<p>
+								<span>成人/2</span>
+								<span>成人/2</span>
+								<span>成人/2</span>
+							</p>
+						</div>
+						<p>
+							<span>233</span>
+						</p>
+					</div>
+					<div class="orderbtn clearfix">
+						<a href="">
+							<button type="button">申请退单</button>
+						</a>
+					</div>
+				</li>
+				<li class="scenicOrder">
+					<h2 class="clearfix">
+						<p class="fl">【美国—塞班岛】塞班自由行+环岛5晚7日游(北京直飞)	L1</p>
+						<p class="fr">未出行</p>
+					</h2>
+					<div class="orderInfo">
+						<div>
+							<p>19-07-05 至 19-07-081</p>
+							<p>
+								<span>成人/2</span>
+								<span>成人/2</span>
+								<span>成人/2</span>
+							</p>
+						</div>
+						<p>
+							<span>233</span>
+						</p>
+					</div>
+					<div class="orderbtn clearfix">
+						<a href="">
+							<button type="button" class="orange">签署合同</button>
+						</a>
+						<a href="">
+							<button type="button">申请退单</button>
+						</a>
+					</div>
+				</li>
+				<li class="carOrder">
+					<h2 class="clearfix">
+						<p class="fl">云旅车队</p>
+						<p class="fr">待评价</p>
+					</h2>
+					<div class="orderInfo">
+						<div>
+							<p>19-07-05 至 19-07-081 / 1晚</p>
+							<p>
+								<span>成人/2</span>
+								<span>成人/2</span>
+								<span>成人/2</span>
+							</p>
+						</div>
+						<p>
+							<span>233</span>
+						</p>
+					</div>
+					<div class="orderbtn clearfix">
+						<a href="">
+							<button type="button">去评价</button>
+						</a>
+					</div>
+				</li>
+				<li class="scenicOrder">
+					<h2 class="clearfix">
+						<p class="fl">【美国—塞班岛】塞班自由行+环岛5晚7日游(北京直飞)	L1</p>
+						<p class="fr">待签署</p>
+					</h2>
+					<div class="orderInfo">
+						<div>
+							<p>19-07-05 至 19-07-081 / 1晚</p>
+							<p>
+								<span>成人/2</span>
+								<span>成人/2</span>
+								<span>成人/2</span>
+							</p>
+						</div>
+						<p>
+							<span>233</span>
+						</p>
+					</div>
+					<div class="orderbtn clearfix">
+						<a href="">
+							<button type="button" class="orange">签署合同</button>
+						</a>
+						<a href="">
+							<button type="button">申请退单</button>
+						</a>
+					</div>
+				</li>
+				<li class="repastOrder">
+					<h2 class="clearfix">
+						<p class="fl">文渊奎晚餐</p>
+						<p class="fr">已取消</p>
+					</h2>
+					<div class="orderInfo">
+						<div>
+							<p>19-07-05 至 19-07-081 / 1晚</p>
+							<p>
+								<span>成人/2</span>
+								<span>成人/2</span>
+								<span>成人/2</span>
+							</p>
+						</div>
+						<p>
+							<span>233</span>
+						</p>
+					</div>
+					<div class="orderbtn clearfix"></div>
+				</li>
+				<li class="repastOrder">
+					<h2 class="clearfix">
+						<p class="fl">文渊奎晚餐</p>
+						<p class="fr">已退单</p>
+					</h2>
+					<div class="orderInfo">
+						<div>
+							<p>19-07-05 至 19-07-081 / 1晚</p>
+							<p>
+								<span>成人/2</span>
+								<span>成人/2</span>
+								<span>成人/2</span>
+							</p>
+						</div>
+						<p>
+							<span>233</span>
+						</p>
+					</div>
+					<div class="orderbtn clearfix"></div>
+				</li>
+			</ul>
+		</section>
+		<script type="text/javascript">
+			$("#classify li").on("tap",function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".mui-tab-label").text($(this).text());
+				mui('#classify').popover("hide");
+			});
+			$(".mui-control-item").each(function(index,item){
+				$(item).on("tap",function(){
+					if($("#world").val()!=index){
+						$("#world").val(index);//0全部订单，1待支付,2未出行,3待评价,4待签署,5取消/退单
+						
+					}
+				});
+			});
+//			pullupRefresh();
+//			function pullupRefresh() {
+//				setTimeout(function () {
+//					var ul = document.querySelector('.orderList');
+//					mui("html").pullRefresh().endPullupToRefresh(setHtmlToUl(ul));
+//				}, 1500);
+//			}
+//	
+//			var isloadok = false;
+	
+//			var setHtmlToUl = function (ul) {
+//				var pageNumber = 1;
+//				var pageSize = 8;
+//				var beforeCount = $(ul).find("li").length;
+//				var data = '<li class="repastOrder">					<h2 class="clearfix">						<p class="fl">文渊奎晚餐</p>						<p class="fr">已退单</p>					</h2>					<div class="orderInfo">						<div>							<p>19-07-05 至 19-07-081 / 1晚</p>							<p>								<span>成人/2</span>								<span>成人/2</span>								<span>成人/2</span>							</p>						</div>						<p>							<span>233</span>						</p>					</div>					<div class="orderbtn clearfix"></div>				</li>';
+//				var sHtml = (pageNumber == 1) ? data : ul.innerHTML + data;
+//				ul.innerHTML = sHtml;
+//				pageNumber++;
+//				var afterCount = $(ul).find("li").length;
+//				if (beforeCount == afterCount) {
+//					isloadok = true;
+//				}
+//				return isloadok;
+//			};
+//			initPullFresh();
+//			function initPullFresh() {
+//				mui.init({
+//					pullRefresh: {
+//						container: "html",
+//						up: {
+//							contentrefresh: '正在加载...',
+//							callback: pullupRefresh
+//						}
+//					}
+//				});
+//			}
+		</script>
+	</body>
+</html>

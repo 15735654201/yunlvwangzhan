@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>选择城市</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/style.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/area.js" type="text/javascript"></script>
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body class="bg-fff selectCity">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+			<div class="header-search">
+				<form action="" method="">
+					<input type="hidden" name="" id="world" value="0" />
+					<input type="text" class="header-search-text" name="" id="searchText" value="" placeholder="城市/区域" />
+					<span class="mui-icon mui-icon-closeempty empty"></span>
+					<button type="button" class="header-search-btn mui-icon mui-icon-search"></button>
+				</form>
+			</div>
+			<div class="mui-segmented-control title">
+				<a class="mui-control-item mui-active" href="#domestic">国内 · 港澳台</a>
+				<a class="mui-control-item" href="#abroad">国外</a>
+			</div>
+		</header>
+		<!-- 国内 · 港澳台,国外列表 -->
+		<section class="mui-content" id="cityList">
+			<div>
+				<dl>
+					<dt>当前位置</dt>
+					<dd class="iconSite iconfont">安徽</dd>
+				</dl>
+				<dl>
+					<dt class="clearfix">最近访问<span class="fr mb0-3 c-40c00b" onclick="purging(this);">清除记录</span></dt>
+					<dd class="record clearfix">
+						<span>安徽安徽安徽安</span>
+						<span>安徽安徽</span>
+						<span>安徽</span>
+						<span>安徽</span>
+						<span>安徽</span>
+					</dd>
+				</dl>
+			</div>
+			<!-- 国内 · 港澳台 -->
+			<div id="domestic" class="mui-control-content mui-active"></div>
+			<!-- 国外 -->
+			<div id="abroad" class="selectCity mui-control-content">
+				<dl class="A">
+					<dt>A</dt>
+					<dd>安徽</dd>
+					<dd>安徽</dd>
+				</dl>
+				<dl class="B">
+					<dt>B</dt>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+					<dd>北京</dd>
+				</dl>
+			</div>
+			<ul class="letter">
+				<li>A<i>A</i></li>
+				<li>B<i>B</i></li>
+				<li>C<i>C</i></li>
+				<li>D<i>D</i></li>
+				<li>E<i>E</i></li>
+				<li>F<i>F</i></li>
+				<li>G<i>G</i></li>
+				<li>H<i>H</i></li>
+				<li>I<i>I</i></li>
+				<li>J<i>J</i></li>
+				<li>K<i>K</i></li>
+				<li>L<i>L</i></li>
+				<li>M<i>M</i></li>
+				<li>N<i>N</i></li>
+				<li>O<i>O</i></li>
+				<li>P<i>P</i></li>
+				<li>Q<i>Q</i></li>
+				<li>R<i>R</i></li>
+				<li>S<i>S</i></li>
+				<li>T<i>T</i></li>
+				<li>U<i>U</i></li>
+				<li>V<i>V</i></li>
+				<li>W<i>W</i></li>
+				<li>X<i>X</i></li>
+				<li>Y<i>Y</i></li>
+				<li>Z<i>Z</i></li>
+			</ul>
+		</section>
+		<!-- 搜索的列表 -->
+		<section class="mui-content dis-n" id="searchList">
+			<dl></dl>
+		</section>
+		<script type="text/javascript">
+			//加载国内 · 港澳台列表
+			var cityArr = new Array;
+			for (var i=0;i<window.areaArr.length;i++){
+				for(var x=0;x<window.areaArr[i].s.length;x++){
+					if(window.areaArr[i].s[x].n!="县"){
+						cityArr.push(window.areaArr[i].s[x].n);
+						for(var j=0;j<window.areaArr[i].s[x].s.length;j++){
+							var str = window.areaArr[i].s[x].s[j].n;
+							if(str.substr(str.length-1,1)=="市"){
+								cityArr.push(str);
+							}
+						}
+					}
+				}
+			}
+			function pySegSort(arr,empty) {
+				if(!String.prototype.localeCompare) return null;
+				var letters = "*ABCDEFGHJKLMNOPQRSTWXYZ".split('');
+				var zh = "阿八嚓哒妸发旮哈讥咔垃痳拏噢妑七呥扨它穵夕丫帀".split('');
+				var segs = [];
+				var curr;
+				$.each(letters, function(i){
+					curr = {letter: this, data:[]};
+					$.each(arr, function() {
+						if((!zh[i-1] || zh[i-1].localeCompare(this) <= 0) && this.localeCompare(zh[i]) == -1) {
+							curr.data.push(this);
+						}
+					});
+					if(empty || curr.data.length) {
+						segs.push(curr);
+						curr.data.sort(function(a,b){
+							return a.localeCompare(b);
+						});
+					}
+				});
+				return segs;
+			}
+			var cityJosnArr = pySegSort(cityArr);
+			var html = "";
+			for(var y=0;y<cityJosnArr.length;y++){
+				html+='<dl class="'+cityJosnArr[y].letter[0]+'"><dt>'+cityJosnArr[y].letter[0]+'</dt>';
+				for(var z=0;z<cityJosnArr[y].data.length;z++){
+					html+='<dd>'+cityJosnArr[y].data[z]+'</dd>';
+				}		
+			}
+			$("#domestic").html(html);
+			//国内，国外切换
+			$(".mui-control-item").each(function(index,item){
+				$(item).on("tap",function(){
+					if($("#world").val()!=index){
+						$("#world").val(index);//0国内，1国外
+						$(".letter li.active").removeClass("active");
+						if($("#searchText").val()!=""){
+							if(index==0){
+								searchList(cityArr,$("#searchText").val());
+							}else{
+								searchList(["安徽","北京"],$("#searchText").val());
+							}
+						}
+					}
+					$(window).scrollTop(0);
+				});
+			});
+			//字母定位,滑动效果
+			var domH = $(".letter li").height();
+			var domY,moveY,index,txt;
+			$(".letter").on({
+				touchstart: function (e) {
+					startY = e.originalEvent.targetTouches[0].pageY-80;
+				},
+				touchmove: function (e) {
+					e.preventDefault();
+					$("body").on({
+						touchmove: function (e) {
+							e.preventDefault();
+						}
+					});
+					domY = $(this).offset().top;
+					moveY = e.originalEvent.targetTouches[0].pageY-80;
+					index = parseInt((moveY-domY)/domH);
+					txt = $(".letter li").eq(index).children().text();
+					$(".letter li").eq(index).find("i").show();
+					$(".letter li").eq(index).siblings().find("i").hide();
+					$(".letter li").eq(index).addClass("active").siblings().removeClass("active");
+				},
+				touchend: function () {
+					if($("#world").val()=="0"){
+						var objStr = "#domestic ."+txt;
+					}else{
+						var objStr = "#abroad ."+txt;
+					}
+					if($(objStr).length>0){
+						var objTop=$(objStr).offset().top-80;
+						$(window).scrollTop(objTop);
+					}
+					$("body").off("touchmove");
+					$(".letter li.active i").fadeOut(500);
+				},
+				tap: function (ev) {
+					var ev = ev || window.event;
+					var target = ev.target || ev.srcElement;
+					if(target.nodeName.toLowerCase() == "li"){
+						$(target).addClass("active").siblings().removeClass("active");
+						if($("#world").val()=="0"){
+							var objStr = "#domestic ."+$(target).children().text();
+						}else{
+							var objStr = "#abroad ."+$(target).children().text();
+						}
+						if($(objStr).length>0){
+							var objTop=$(objStr).offset().top-80;
+							$(window).scrollTop(objTop);
+						}
+					}
+					$(".letter li.active i").fadeIn(500);
+					$(".letter li.active i").fadeOut(500);
+				}
+			});
+			//选择城市
+			$(".mui-content").delegate("dd","tap",function(ev){
+				var txt;
+				if(!$(this).hasClass('record')){
+					txt=$(this).text();
+					window.location.href="酒店.html?city="+txt;
+				}else {
+					var ev = ev || window.event;
+					var target = ev.target || ev.srcElement;
+					if(target.nodeName.toLowerCase() == "span"){
+						txt=$(target).text();
+						window.location.href="酒店.html?city="+txt;
+					}
+				}
+			});
+			var newCityArr = new Array;
+			$("#searchText").bind('input propertychange', function() {
+				var val=$(this).val();
+				if($(this).val()!=""){
+					$(".letter li.active").removeClass("active");
+					$(this).next(".empty").fadeIn(200);
+					$("#cityList").hide();
+					$("#searchList").show();
+					if($("#world").val()=="0"){
+						searchList(cityArr,val);
+					}else {
+						searchList(["安徽","北京"],val);
+					}
+					
+				}else {
+					$(this).next(".empty").fadeOut(200);
+					$("#cityList").show();
+					$("#searchList").hide();
+				}
+			});
+			function searchList(Arr,str){
+				var html="";
+				for(var i=0;i<Arr.length;i++){
+					if(Arr[i].indexOf(str) >= 0){
+						html+="<dd>"+Arr[i]+"</dd>";
+					}
+				}
+				$("#searchList dl").html(html);
+			}
+			//清空搜索框
+			$(".empty").on("tap",function(){
+				$(this).parent().find("input").val("");
+				$(this).fadeOut(200);
+				$("#cityList").show();
+				$("#searchList").hide();
+			});
+			//清除记录
+			function purging(obj){
+				$(obj).parent().next("dd").empty();
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<span id="time"></span>
+		<script type="text/javascript">
+			var endTimeNum = (new Date("2019-08-23 16:25:27")).getTime();
+			var timeNum = (endTimeNum - (new Date()).getTime()) / 1000;
+
+			function times(num) {
+				var Time = setInterval(function() {
+					if (num > 0) {
+						var day = Math.floor(num / (60 * 60 * 24));
+						hour = Math.floor(num / (60 * 60)) - (day * 24);
+						minute = Math.floor(num / 60) - (day * 24 * 60) - (hour * 60);
+						second = Math.floor(num) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+						$('#time').html(day + "天" + hour + ":" + minute + ":" + second);
+						num--;
+					} else if (num == -1) {
+						window.location.href = "";
+						clearInterval(Time);
+					}
+				}, 1000);
+			}
+			times(timeNum);
+		</script>
+	</body>
+</html>

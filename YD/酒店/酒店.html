@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>酒店首页</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/hotelDate.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/ion.rangeSlider.css" />
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/style.js" type="text/javascript" charset="utf-8"></script><!-- 解决上拉加载a链接失效 -->
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/hotelDate.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/ion.rangeSlider.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			body {width: 100%;}
+		</style>
+	</head>
+	<body class="hotel">
+		<header class="mui-bar mui-bar-nav block lucencyHead">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+			<h1 class="mui-title">酒店</h1>
+		</header>
+		<div class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<!-- 搜索 -->
+				<section class="search">
+					<div class="mui-segmented-control">
+						<a class="mui-control-item mui-active" href="#item">国内 · 港澳台</a>
+						<a class="mui-control-item" href="#item">国外</a>
+					</div>
+					<div>
+						<div class="mui-control-content mui-active">
+							<form id="" action="" method="">
+								<input type="hidden" name="" id="world" value="0" />
+								<input type="hidden" name="" id="priceFrom" value="" />
+								<input type="hidden" name="" id="priceTo" value="" />
+								<input type="hidden" name="" id="star" value="" />
+								<ul class="inputBox">
+									<li class="address clearfix">
+										<div class="fl pr">
+											<a href="选择城市.html" id="place">
+												<input type="text" name="" value="123" readonly="readonly" />
+											</a>
+											<!--<span class="mui-icon mui-icon-closeempty empty"></span>-->
+										</div>
+										<div class="fl">
+											<p class="location">
+												<span></span>
+												<span>当前位置</span>
+											</p>
+										</div>
+									</li>
+									<li class="timeBox pr" id="hotelDate">
+										<div>
+											<p></p>
+											<input type="hidden" name="" id="startDate" value="" />
+											<p class="startText"></p>
+										</div>
+										<span class="vb" style="padding: 0 15px;">至</span>
+										<div>
+											<p></p>
+											<input type="hidden" name="" id="endDate" value="" />
+											<p class="endText"></p>
+											
+										</div>
+										<span class="numall"></span>
+									</li>
+									<li class="hotelName">
+										<div class="pr">
+											<input type="text" name="" id="hotelName" value="123" placeholder="关键字/酒店名" />
+											<span class="mui-icon mui-icon-closeempty empty"></span>
+										</div>
+									</li>
+									<li class="priceStar">
+										<div class="pr">
+											<a href="#pop">
+												<input type="text" name="" id="priceStar" value="456" placeholder="设置我喜欢的星级/价格" readonly />
+											</a>
+											<span class="mui-icon mui-icon-closeempty empty"></span>
+										</div>
+									</li>
+								</ul>
+								<div class="searchBtn">
+									<button type="submit">搜索酒店</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</section>
+				<!-- 轮播 -->
+				<section class="gallery">
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+							<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:;">
+									<img src="../images/b.jpg">
+								</a>
+							</div>
+							<!-- 第一张 -->
+							<div class="mui-slider-item">
+								<a href="javascript:;">
+									<img src="../images/b.jpg">
+								</a>
+							</div>
+							<!-- 第二张 -->
+							<div class="mui-slider-item">
+								<a href="javascript:;">
+									<img src="../images/b.jpg">
+								</a>
+							</div>
+							<!-- 第三张 -->
+							<div class="mui-slider-item">
+								<a href="javascript:;">
+									<img src="../images/b.jpg">
+								</a>
+							</div>
+							<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:;">
+									<img src="../images/b.jpg">
+								</a>
+							</div>
+						</div>
+						<div class="mui-slider-indicator">
+							<div class="mui-indicator mui-active"></div>
+							<div class="mui-indicator"></div>
+							<div class="mui-indicator"></div>
+						</div>
+					</div>
+				</section>
+				<!-- 主题推荐 -->
+				<section class="recommended">
+					<h2 class="moduleTit"><span>主题推荐</span></h2>
+					<div class="moduleBox">
+						<div class="party cc" style="overflow: hidden;">
+							<div>
+								<ul class="clearfix">
+									<li>
+										<a href="https://www.baidu.com/">
+											<img src="../images/b.jpg" alt="" />
+											<p>挂牌三星级酒店</p>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											<img src="../images/b.jpg" alt="" />
+											<p>挂牌三星级酒店挂牌三星级酒店挂牌三星级酒店挂牌三星级酒店</p>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											<img src="../images/b.jpg" alt="" />
+											<p>挂牌酒店</p>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											<img src="../images/b.jpg" alt="" />
+											<p>挂牌三星级酒店</p>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:;">
+											<img src="../images/b.jpg" alt="" />
+											<p>挂牌三星级酒店</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- 猜你喜欢 -->
+				<section class="link">
+					<h2 class="moduleTit"><span>猜你喜欢</span></h2>
+					<div class="moduleBox">
+						<ul class="multiple clearfix" id="a">
+							<li>
+								<a href="javascript:;">
+									<div class="imgBox">
+										<img src="../images/b.jpg"/>
+									</div>
+									<p class="name">如家快捷酒店</p>
+									<p class="site">小店区平阳路</p>
+									<p class="price">
+										<span>299</span>
+										<s>¥399</s>
+									</p>
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<div class="imgBox">
+										<img src="../images/b.jpg"/>
+									</div>
+									<p class="name">如家快捷酒店如家快捷酒店</p>
+									<p class="site">小店区平阳路小店区平阳路小店区平阳路</p>
+									<p class="price">
+										<span>299</span>
+										<s>¥399</s>
+									</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</section>
+			</div>
+		</div>
+		<!-- 选择日期 -->
+		<section class="mask_calendar">
+			<div class="calendar"></div>
+		</section>
+		<!-- 价格/星级 -->
+		<section id="pop" class="priceStarBox mui-popover mui-popover-action mui-popover-bottom">
+			<div class="popBox">
+				<p>价格<span class="jiageNum"></span></p>
+				<div style="margin: 0 6% 4% 4%;">
+					<input type="text" class="js-range-slider" name="my_range" value="" />
+				</div>
+				<ul class="clearfix jiage">
+					<li from="0" to="3">¥150以下</li>
+					<li from="3" to="4">¥150-200</li>
+					<li from="4" to="5">¥200-250</li>
+					<li from="5" to="7">¥250-350</li>
+					<li from="7" to="9">¥350-450</li>
+					<li from="9" to="10">¥450以上</li>
+				</ul>
+				<p>星级</p>
+				<ul class="clearfix xingji">
+					<li><span data-id="1">二星级</span></li>
+					<li><span data-id="2">二星级二星级二星级二星级二星级二星级二星级二星级二星级二星级</span></li>
+					<li><span data-id="3">二星级</span></li>
+				</ul>
+			</div>
+			<div class="btnBox">
+				<button type="button" class="mui-btn mui-btn-outlined" onclick="resets();">重置</button>
+				<button type="button" class="mui-btn mui-btn-royal" onclick="submits();">完成</button>
+			</div>
+		</section>
+		<script type="text/javascript">
+			var scroll = mui('.mui-scroll-wrapper').scroll({deceleration: 0.0006}); 
+			document.querySelector('.mui-scroll-wrapper' ).addEventListener('scroll', function (e) {
+				var top = scroll.y;
+				if(top<=0){
+					top = Math.abs(top);
+					ihAlpha = 150;//从透明到不透明的滑动高度
+					iAlpha = 0.4;//透明度
+					Alpha = (top / ihAlpha < iAlpha) ? top / ihAlpha : iAlpha;
+					document.querySelector('.lucencyHead').style.backgroundColor = "rgba(0, 0, 0," + Alpha + ")";//前边三组数字是用来设置背景颜色的
+				}
+			});
+			//国内，国外切换
+			$(".mui-control-item").each(function(index,item){
+				$(item).on('tap', function () {
+					if($("#world").val()!=index){
+						$("#world").val(index);//0国内，1国外
+						$("#hotelName").val("");
+						$("#hotelName").next().fadeOut();
+					}
+				});
+			});
+			//点击当前位置
+			$(".location").on("tap",function(){
+				
+			});
+			//转换日期
+			function dateFormat(Time, pattern){
+				var d = new Date(Time);
+				d.getTime();
+				var date = {
+					"M+": d.getMonth() + 1,
+					"d+": d.getDate(),
+					"h+": d.getHours(),
+					"m+": d.getMinutes(),
+					"s+": d.getSeconds(),
+					"q+": Math.floor((d.getMonth() + 3) / 3),
+					"S+": d.getMilliseconds()
+				};
+				if (/(y+)/i.test(pattern)) {
+					pattern = pattern.replace(RegExp.$1, (d.getFullYear() + '').substr(4 - RegExp.$1.length));
+				}
+				for (var k in date) {
+					if (new RegExp("(" + k + ")").test(pattern)) {
+						pattern = pattern.replace(RegExp.$1, RegExp.$1.length == 1
+							? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
+					}
+				}
+				return pattern;
+			}
+			//选择日期
+			var top;
+			$('#hotelDate').on('tap',function () {
+				$('.mask_calendar').fadeIn(200);
+			});
+			$('.mask_calendar').on('tap',function (e) {
+				if(e.target.className == "mask_calendar"){
+					$('.calendar').slideUp(200);
+					$('.mask_calendar').fadeOut(200);
+				}
+			});
+			$('#hotelDate').calendarSwitch({
+				selectors : {
+					sections : ".calendar"
+				},
+				index : 6,	  //展示的月份个数
+				animateFunction : "slideToggle",		//动画效果
+				controlDay: false,//知否控制在daysnumber天之内，这个数值的设置前提是总显示天数大于90天
+				daysnumber : "",	 //控制天数
+	//			comeColor : "#01AAED",	   //入住颜色
+	//			outColor : "#01AAED",	  //离店颜色
+	//			comeoutColor : "rgba(30, 159, 255, 0.1)",		//入住和离店之间的颜色
+				callback:function(startDate,endDate,NumDate,startWeek,endWeek){//回调函数
+					$('.mask_calendar').fadeOut(200);
+					//入住日期，离店日期，共多少晚，入住周几，离店周几
+					//console.log(startDate,endDate,NumDate,startWeek,endWeek);
+					$('#startDate').val(startDate);
+					$('#startDate').prev("p").text(startWeek+"入住");
+					$('#startDate').next("p").text(dateFormat(startDate,"MM月dd日"));
+					$('#endDate').val(endDate);
+					$('#endDate').prev("p").text(endWeek+"离店");
+					$('#endDate').next("p").text(dateFormat(endDate,"MM月dd日"));
+					$('.numall').text("共"+NumDate+"晚");
+				}
+			});
+			//清空关键字
+			$(".empty").on("tap",function(){
+				$(this).parent().find("input").val("");
+				if($(this).parent().find("input").attr("id")=="priceStar"){
+					$("#priceFrom").val("");
+					$("#priceTo").val("");
+					$("#star").val("");
+					resets();
+				}
+				$(this).fadeOut(200);
+			});
+			$("#hotelName").bind("input propertychange",function(){
+				if($(this).val()){
+					$(this).next(".empty").fadeIn(200);
+				}
+			});
+			var arrObj = [$("#hotelName"),$("#priceStar")]
+			for(var i=0;i<arrObj.length;i++){
+				if(arrObj[i].val()==""){
+					arrObj[i].parents("li").find(".empty").fadeOut(200);
+				}else {
+					arrObj[i].parents("li").find(".empty").fadeIn(200);
+				}
+			}
+			//轮播图动滚动
+			var slider = mui("#slider");
+			slider.slider({
+				interval: 2000
+			});
+			//滑块
+			var arrNum = [0,50,100,150,200,250,300,350,400,450,"450以上"],$obj=$(".js-range-slider");
+			$obj.ionRangeSlider({
+				skin: "round",//样式
+				type: "double",//区间类型
+//				min: 0,//最小值
+//				max: 1000,//最大值
+//				step: 100,//间隔
+				from: 0,//开始
+				to: 10,//结束
+				min_interval: 1,
+				from_max: 9, //开始最大值
+				values: arrNum,//自定义数组
+				prefix: "¥",//前缀
+				onChange: function (data) {//滑块改变
+					$(".jiage li.active").removeClass("active");
+					if(data.to==10){
+						$(".jiageNum").text("¥"+data.from_value+"以上");
+					}else {
+						if(data.from==0){
+							$(".jiageNum").text("¥"+data.to_value+"以下");
+						}else{
+							$(".jiageNum").text("¥"+data.from_value+"-"+data.to_value);
+						}
+					}
+				},
+				onUpdate: function (data) {//滑块更新
+					if(data.to==10){
+						$(".jiageNum").text("¥"+data.from_value+"以上");
+					}else {
+						if(data.from==0){
+							$(".jiageNum").text("¥"+data.to_value+"以下");
+						}else{
+							$(".jiageNum").text("¥"+data.from_value+"-"+data.to_value);
+						}
+					}
+				}
+			});
+			var $obj5=$obj.data("ionRangeSlider");
+			//价格点击事件
+			$(".jiage li").on("tap",function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				$(".jiageNum").text($(this).text());
+				var from=$(this).attr("from"),to=$(this).attr("to");
+				$obj5.update({
+					from: from,
+					to: to
+				});
+			});
+			//星级点击事件
+			$(".xingji li").on("tap",function(){
+				$(this).toggleClass("active");
+			});
+			function resets(){
+				$obj5.update({
+					from: 0,
+					to: 10
+				});
+				$(".jiageNum").text("");
+				$(".jiage li.active").removeClass("active");
+				$(".xingji li.active").each(function(){
+					$(this).removeClass("active");
+				});
+			}
+			function submits(){
+				var from=arrNum[$(".js-range-slider").data("from")],
+					to=arrNum[$(".js-range-slider").data("to")];
+				if(from==0){
+					$("#priceFrom").val("");
+				}else{
+					$("#priceFrom").val(from);
+				}
+				if(to=="450以上"){
+					$("#priceTo").val("");
+				}else {
+					$("#priceTo").val(to);
+				}
+				var str="",idNum="";
+				if($(".jiageNum").text()!=""&&$(".xingji li.active").length>0)str+=",";
+				$(".xingji li.active").each(function(index){
+					if(index>0){str+=",";idNum+=",";}
+					idNum+=$(this).children().attr("data-id");
+					str+=$(this).children().text();
+				});
+				var val = $(".jiageNum").text()+str;
+				$("#priceStar").val(val);
+				$("#star").val(idNum);
+				if(val!=""){
+					$("#priceStar").parent().next("span.empty").fadeIn(200);
+				}else {
+					$("#priceStar").parent().next("span.empty").fadeOut(200);
+				}
+				mui('#pop').popover('toggle');
+			}
+		</script>
+	</body>
+</html>

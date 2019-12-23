@@ -33,6 +33,7 @@ function showMsg(msg,config){
 function successMsg(msg){
     showMsg(msg,{icon:1,time:500});
 }
+successMsg("msg");
 /** 显示失败消息 */
 function failMsg(msg){
     showMsg(msg,{icon:2,time:3000});

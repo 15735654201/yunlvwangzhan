@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>查看二维码-弹窗</title>
+		<link rel="stylesheet" type="text/css" href="../layui/css/layui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/alter_layui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/li_main.css" />
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery.qrcode.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/html2canvas.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#code {background-color: #ffffff;}
+			#imgBox>img {float: left;width: 100%;min-width: 600px;}
+			#imgBox+#code {padding: 1.2%;position: absolute;top: 3%;left: 3%;}
+			#code>canvas {padding: 3%;}
+			#imgBox+#code>canvas {float: left;padding: 0;}
+			#download {position: fixed;cursor: pointer;top: 32px;right: 32px;background-color: rgba(0,0,0,0.5);border-radius: 5px;padding: 5px 10px;}
+			#download>a {color: #ffffff;text-decoration: none;}
+		</style>
+	</head>
+	<body	class="min_w0">
+		<div class="main_container">
+			<div class="main_content popup">
+				<div id="posters" class="layui-pr layui-tc layui-clear">
+					<!-- 有海报时 -->
+					<!--<div id="imgBox" class="layui-clear">
+						<img class="layui-fl" src="../@尝试/自定义div位置(拖拽)/2.jpg" alt="" />
+					</div>-->
+					<div id="code" class="layui-clear"></div>
+				</div>
+				<div id="download">
+					<a href="javascript:;" download="">下载<br />图片</a>
+				</div>
+			</div>
+		</div>
+		<script src="../jq/jquery.nicescroll.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layui/layui.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/li_layui.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var codeWidth = 300,
+				obj = new Object;
+			if($("#imgBox").length > 0){codeWidth = $("#imgBox").width()/4.6;}
+			$("#code").qrcode({
+				render: "canvas",
+				width: codeWidth,
+				height: codeWidth,
+				text: "http://lxs01.yunlvkeji.xyz/jsp/wap/index/do.jsp?method=lineInfo&lineId=431903"
+			});
+			if($("#imgBox").length > 0){
+				obj = $("#posters");
+			}else {
+				obj = $("#code").children("canvas");
+			}
+			function isIE(){
+				var userAgent = navigator.userAgent;
+				var isOpera = userAgent.indexOf("Opera") > -1;
+				if(userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera) {
+					return "IE";
+				};
+				if(userAgent.indexOf("Trident") > -1) {
+					return "Edge";
+				}
+			}
+			var imgSrc;
+			html2canvas(obj, {
+				allowTaint: true, //允许污染
+				taintTest: true, //在渲染前测试图片
+				background: "#fff",
+				onrendered: function (canvas) {
+					imgSrc = canvas.toDataURL('image/jpeg', 1.0);
+					var html = '<img id="img" src="'+canvas.toDataURL('image/jpeg', 1.0)+'" title="点击鼠标右键保存图片" alt="" />'; //将图片转为base64, 0-1 表示清晰度
+					if($("#imgBox").length > 0){
+						html = '<img id="img" width="100%" src="'+canvas.toDataURL('image/jpeg', 1.0)+'" title="点击鼠标右键保存图片" alt="" />'; //将图片转为base64, 0-1 表示清晰度
+					}
+					$("#posters").html(html);
+					if(isIE() === "IE" || isIE() == "Edge"){
+						if(isIE() == "Edge"){
+							$("#download>a").attr("href","javascript:downloadEdge();");
+						}else {
+							$("#download").remove();
+						}
+					}else {
+						$("#download>a").attr("href",canvas.toDataURL('image/jpeg', 1.0));
+						$("#download>a").attr("download","poster.jpg");
+					}
+				}
+			});
+			function downloadEdge(){
+				var arr = imgSrc.split(',');
+				var mime = arr[0].match(/:(.*?);/)[1];
+				var bstr = atob(arr[1]);
+				var n = bstr.length;
+				var u8arr = new Uint8Array(n);
+				while(n--){
+				u8arr[n] = bstr.charCodeAt(n);
+				}
+				window.navigator.msSaveBlob(new Blob([u8arr], {type:mime}), "poster.jpg");
+			}
+		</script>
+	</body>
+</html>

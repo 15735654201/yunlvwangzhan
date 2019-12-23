@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>提现申请</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/style.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			html,body {background-color: #f6f6f6;}
+			.f11{font-size:11px}
+			.f14{font-size:14px}
+			.c-red{color:#e30000}header.mui-bar{background-color:#eaeaea}
+			.mui-title{color:#232323}footer{display:flex!important;justify-content:space-between}
+			footer a.tab-item{color:#666;height:50px;line-height:50px}
+			footer a.tab-item:first-child{width: 24%;}
+			footer label{padding:0 0 0 40px!important;height:50px;font-size:12px;line-height:50px!important;vertical-align:top}
+			footer .mui-checkbox.mui-left input[type=checkbox],.mui-radio.mui-left input[type=radio]{top:12px;left:10px}
+			footer>a.tab-item:nth-child(2){width:50%;padding-right:3%;font-size:12px;text-align: right;}
+			footer>a.tab-item:nth-child(2) span{color:#ed6c18;font-size:16px;font-weight:bold;max-width:8em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}
+			footer>a.tab-item:nth-child(2) span:before{font-size:12px;content:"¥";margin-right:2px}
+			footer a.tab-item:last-child{color:#fff;width:30%;padding:0;font-size:18px;text-align:center;background:linear-gradient(to bottom right,#ffac5e,#ed6c18);background:-o-linear-gradient(to bottom right,#ffac5e,#ed6c18);background:-moz-linear-gradient(to bottom right,#ffac5e,#ed6c18);background:-webkit-linear-gradient(to bottom right,#ffac5e,#ed6c18)}
+			ul>li+li{height:56px;margin-bottom:7px;overflow:hidden}
+			ul>li:last-child {margin-bottom: 0;}
+			ul>li:first-child{padding:0 4%;color:#232323;line-height:35px}
+			ul>li:first-child>span{font-size:14px;margin-right:10px}
+			li .mui-checkbox>label{color:#666;font-size:12px;line-height:24px;padding:4px 4% 4px 12%!important;background-color:#fff}
+			li .mui-checkbox>label div span:not(:last-child){margin-right:10px;float:left}
+			li .mui-checkbox>label div:last-child span:last-child:before{content:"+ ¥"}
+			li .mui-checkbox>label div:last-child span:not(:last-child) i{max-width:4.5em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top}
+			li .mui-checkbox>label div:last-child span:first-child:last-child) i{max-width:14em}
+			li .mui-checkbox.mui-left input[type=checkbox],.mui-radio.mui-left input[type=radio]{top:14px;left:3%}
+			.mui-checkbox input[type=checkbox]:before, .mui-radio input[type=radio]:before {
+				top: 0;
+			}
+			@media(max-width:320px){li .mui-checkbox>label{font-size:11px}}
+		</style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-icon-arrowleft"></a>
+			<h1 class="mui-title">提现申请</h1>
+		</header>
+		<footer class="mui-bar mui-bar-tab">
+			<a class="tab-item" href="javascript:;">
+				<div class="mui-input-row mui-checkbox mui-left">
+				  <label>全选</label>
+				  <input id="checkbox" type="checkbox">
+				</div>
+			</a>
+			<a class="tab-item" href="javascript:;"><i class="vt">合计：</i><span id="money">0.00</span></a>
+			<a class="tab-item" href="">提现</a>
+		</footer>
+		<section class="mui-content">
+			<form action="" method="post" class="mui-input">
+				<input name="" id="sumMoney" value="" type="hidden">
+				<ul>
+					<li>
+						<span>2019-10月</span>
+						<span class="c-red">￥222</span>
+					</li>
+					<li>
+						<div class="mui-input-row mui-checkbox mui-left">
+						  <label>
+							  <div class="clearfix">
+								<span class="c-333 f14">会员分成</span>
+								<span class="c-999">2019.10.25</span>
+								<span class="fr f11">分成金额</span>
+							  </div>
+							  <div class="clearfix">
+								<span>下单人：<i>张三张三张三</i></span>
+								<span>所属会员：<i>张三张三张三</i></span>
+								<span class="fr c-red money">200.05</span>
+							  </div>
+						  </label>
+						  <input name="checkbox" value="1" type="checkbox">
+						</div>
+					</li>
+					<li>
+						<div class="mui-input-row mui-checkbox mui-left">
+						  <label>
+							  <div class="clearfix">
+								<span class="c-333 f14">会员分成</span>
+								<span class="c-999">2019.10.25</span>
+								<span class="fr f11">分成金额</span>
+							  </div>
+							  <div class="clearfix">
+								<span>下单人：<i>张三张三张三</i></span>
+								<span>所属会员：<i>张三张三张三</i></span>
+								<span class="fr c-red money">200.05</span>
+							  </div>
+						  </label>
+						  <input name="checkbox" value="2" type="checkbox">
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						<span>2019-10月</span>
+						<span class="c-red">￥222</span>
+					</li>
+					<li>
+						<div class="mui-input-row mui-checkbox mui-left">
+						  <label>
+							  <div class="clearfix">
+								<span class="c-333 f14">会员分成</span>
+								<span class="c-999">2019.10.25</span>
+								<span class="fr f11">分成金额</span>
+							  </div>
+							  <div class="clearfix">
+								<span>下单人：<i>张三张三张三</i></span>
+								<span>所属会员：<i>张三张三张三</i></span>
+								<span class="fr c-red money">200.05</span>
+							  </div>
+						  </label>
+						  <input name="checkbox" value="1" type="checkbox">
+						</div>
+					</li>
+					<li>
+						<div class="mui-input-row mui-checkbox mui-left">
+						  <label>
+							  <div class="clearfix">
+								<span class="c-333 f14">会员分成</span>
+								<span class="c-999">2019.10.25</span>
+								<span class="fr f11">分成金额</span>
+							  </div>
+							  <div class="clearfix">
+								<span>下单人：<i>张三张三张三</i></span>
+								<span class="fr c-red money">100.00</span>
+							  </div>
+						  </label>
+						  <input name="checkbox" value="2" type="checkbox">
+						</div>
+					</li>
+					<li>
+						<div class="mui-input-row mui-checkbox mui-left">
+						  <label>
+							  <div class="clearfix">
+								<span class="c-333 f14">会员分成</span>
+								<span class="c-999">2019.10.25</span>
+								<span class="fr f11">分成金额</span>
+							  </div>
+							  <div class="clearfix">
+								<span>下单人：<i>张三张三张三</i></span>
+								<span>所属会员：<i>张三张三张三</i></span>
+								<span class="fr c-red money">200.05</span>
+							  </div>
+						  </label>
+						  <input name="checkbox" value="2" type="checkbox">
+						</div>
+					</li>
+				</ul>
+			 </form>
+		</section>
+		<script type="text/javascript">
+			var chkall=document.getElementById("checkbox"); 
+			var num = 0;
+			mui.ready(function(){
+				chkall.addEventListener("change",function(){
+					num = 0;
+					if(this.checked){
+						mui("input[name='checkbox']").each(function(){
+							this.checked=true;
+							num += parseFloat($(this).siblings("label").find(".money").text());
+						});
+					}else{ 
+						mui("input[name='checkbox']").each(function(){ 
+							this.checked=false;
+						});
+					} 
+					$("#money").text(num.toFixed(2));
+					$("#sumMoney").val(num.toFixed(2));
+				},false);
+				var cbknum=mui("input[name='checkbox']").length;
+				var chknum=0;
+				mui('.mui-input').on('change','input',function(e){
+					if(this.checked){
+						chknum++;
+						num += parseFloat($(this).siblings("label").find(".money").text());
+					} else {
+						chknum--;
+						num -= parseFloat($(this).siblings("label").find(".money").text());
+					}
+					if(cbknum==chknum){
+						chkall.checked=true; 
+					}else{ 
+						chkall.checked=false;
+					}
+					$("#money").text(num.toFixed(2));
+					$("#sumMoney").val(num.toFixed(2));
+				});
+			}); 
+		</script>
+	</body>
+</html>

@@ -1,12 +1,12 @@
 /* 字体库 */
 @font-face {
-	font-family: 'iconfont';  /* project id 790416 */
-	src: url('//at.alicdn.com/t/font_790416_fbb08c8ntmu.eot');
-	src: url('//at.alicdn.com/t/font_790416_fbb08c8ntmu.eot?#iefix') format('embedded-opentype'),
-	url('//at.alicdn.com/t/font_790416_fbb08c8ntmu.woff2') format('woff2'),
-	url('//at.alicdn.com/t/font_790416_fbb08c8ntmu.woff') format('woff'),
-	url('//at.alicdn.com/t/font_790416_fbb08c8ntmu.ttf') format('truetype'),
-	url('//at.alicdn.com/t/font_790416_fbb08c8ntmu.svg#iconfont') format('svg');
+	font-family: "iconfont";
+	src: url('../../yunLvLineStyle/fonts/iconfont.eot');/* IE9*/
+	src: url('../../yunLvLineStyle/fonts/iconfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../../yunLvLineStyle/fonts/iconfont.woff') format('woff'), /* chrome, firefox */
+	url('../../yunLvLineStyle/fonts/iconfont.ttf') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+	url('../../yunLvLineStyle/fonts/iconfont.svg#iconfont') format('svg');/* iOS 4.1- */
+	
 }
 .iconfont {
 	font-family: "iconfont" !important;
@@ -154,10 +154,6 @@ button:active,.btn:active {
 	background: -moz-linear-gradient(bottom right,#ffac5e, #ed6c18);
 	background: -webkit-linear-gradient(left top,#ffac5e, #ed6c18);
 }
-.mui-toast-message {
-	color: #ffffff;
-	background-color: rgba(0,0,0,.6);
-}
 footer.btn-box a.tab-item {
 	color: #ffffff;
 	width: 30%;
@@ -180,21 +176,6 @@ footer.btn-box a.tab-item>span.fa {
 .pre_line {/*合并空白符序列，但是保留换行符。*/
 	white-space: pre-line;
 }
-/* 百度编辑器模块 */
-.li_editor a,.li_editor i,.li_editor span {display: inline;}
-.li_editor ul,.li_editor ol {
-	margin-block-start: 1em;
-	margin-block-end: 1em;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	padding-inline-start: 40px;
-}
-.li_editor ul,.li_editor ul li {
-	list-style-type: disc;
-}
-.li_editor ol,.li_editor ol li {
-	list-style-type: decimal;
-}
 /*单行溢出，禁止换行,省略号形式：*/
 .elip {
 	white-space: nowrap;
@@ -212,17 +193,6 @@ footer.btn-box a.tab-item>span.fa {
 	padding: 0 4%;
 	border-radius: 0;
 }
-/* 轮播 */
-.mui-pull-bottom-tips {
-	text-align: center;
-	font-size: 15px;
-	font-weight: 700;
-	line-height: 40px;
-	color: #777;
-}
-.search-box {
-	top: 0;
-}
 /* 搜索框头 */
 .search-header {
 	padding: 0;
@@ -236,7 +206,7 @@ footer.btn-box a.tab-item>span.fa {
 	line-height: 44px;
 	color: #3c4854;
 }
-.search-close,.search-start {
+.search-start {
 	padding-right: 1%;
 }
 .search-header+.mui-content {
@@ -390,47 +360,6 @@ footer.btn-box a.tab-item>span.fa {
 	color: #f3812e;
 	background-color: #ffffff;
 }
-/* 弹窗 */
-/* 从右至左 */
-.mui-popover.mui-popover-action.mui-popover-right {
-	position: fixed;
-	transform: translate3d(100%, 0, 0);
-	-webkit-transform: translate3d(100%, 0, 0);
-}
-.mui-popover.mui-popover-action.mui-popover-right.mui-active {
-	-webkit-transform: translate3d(0, 0, 0);
-	transform: translate3d(0, 0, 0);
-}
-.ifame-box.mui-popover.mui-popover-action {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	bottom: auto;
-	width: 80%;
-	border-radius: 6px;
-	background-color: #ffffff;
-}
-.ifame-box.mui-popover.mui-popover-action.mui-active {
-	transform: translate(-50%,-50%);
-	-webkit-transform: translate(-50%,-50%);
-}
-.ifame-box h4 {
-	font-size: 16px;
-	line-height: 36px;
-	text-align: center;
-	color: #3c4854;
-	white-space: nowrap;
-	overflow:hidden;
-	text-overflow:ellipsis;
-}
-.ifame-box .cha {
-	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 26px;
-	transform: translate(0,-140%);
-	-webkit-transform: translate(0,-140%);
-}
 header.white {
 	background-color: rgba(255, 255, 255, 0);
 	border-bottom: 1px;
@@ -552,8 +481,7 @@ footer.mui-bar.mui-bar-tab {
 	position: absolute;
 	top: 8px;
 	left: 0;
-	padding: 0 4px 0 10px;
-	width: auto;
+	padding: 0 10px;
 	margin: 0;
 	height: 30px;
 	font-size: 18px;
@@ -579,8 +507,6 @@ footer.mui-bar.mui-bar-tab {
 }
 .header-search .empty {
 	display: none;
-	width: 18px!important;
-	height: 18px!important;
 	color: #ffffff!important;
 	font-size: 18px;
 	padding: 0!important;
@@ -591,23 +517,6 @@ footer.mui-bar.mui-bar-tab {
 	-webkit-transform: translateY(-50%);
 	border-radius: 50%;
 	background-color: rgba(0,0,0,0.2);
-}
-.header-search .empty+.header-search-text {
-	padding-right: 34px;
-}
-.searchButton {
-	width: 11%;
-	margin: 22px 1.5%;
-	color: #ffffff;
-	font-size: 12px;
-	margin-top: 11px;
-	line-height: 22px;
-	text-align: center;
-	border-radius: 20px;
-	background-color: #5565e3;
-}
-.searchButton:active {
-	background-color: #2d388c;
 }
 /* 酒店首页 */
 .hotel .mui-content {
@@ -712,7 +621,7 @@ footer.mui-bar.mui-bar-tab {
 /*.hotel .search .inputBox .address>div:first-child>span.empty,*/
 .hotel .search .inputBox .hotelName>div>span.empty,
 .hotel .search .inputBox .priceStar>div>span.empty
-{
+ {
 	display: none;
 	color: #ffffff;
 	font-size: 18px;
@@ -968,7 +877,7 @@ footer.mui-bar.mui-bar-tab {
 }
 .party ul li+li {
 	margin-left: 4%;
-}
+ }
 .party ul li p {
 	color: #ffffff;
 	position: absolute;
@@ -1048,7 +957,6 @@ footer.mui-bar.mui-bar-tab {
 	content: "\8d77";
 }
 .multiple li .price>s {
-	color: #8e9293;
 	font-size: 12px;
 }
 /* 选择城市 */
@@ -1246,15 +1154,13 @@ footer.mui-bar.mui-bar-tab {
 	display: block;
 }
 .myOrder .orderList>li h2 {
-	position: relative;
 	height: 42px;
 	line-height: 42px;
 	border-bottom: 1px solid #dddddd;
 }
 .myOrder .orderList>li h2>p:first-child {
-	width: 100%;
 	color: #3c4854;
-	padding-right: 46px;
+	max-width: 76%;
 	font-size: 14px;
 	padding-left: 24px;
 	white-space: nowrap;
@@ -1263,8 +1169,8 @@ footer.mui-bar.mui-bar-tab {
 	position: relative;
 	box-sizing: border-box;
 }
-.myOrder .orderList>li h2>p.pr_130:first-child {
-	padding-right: 130px;
+.myOrder .orderList>li h2>p.max_59:first-child {
+	max-width: 59%;
 }
 .myOrder .orderList>li h2>p:first-child:before {
 	display: inline-block;
@@ -1295,9 +1201,6 @@ footer.mui-bar.mui-bar-tab {
 	background-image: url("../images/repastOrder.jpg");
 }
 .myOrder .orderList>li h2>p:last-child {
-	position: absolute;
-	top: 0;
-	right: 0;
 	color: #3c4854;
 	font-size: 12px;
 	font-weight: normal;
@@ -1807,6 +1710,11 @@ footer.mui-bar.mui-bar-tab {
 	font-size: 14px;
 	line-height: 24px;
 }
+.lump>div.text span,
+.lump>div.text a,
+.lump>div.text i {
+	display: inline;
+}
 .lump>.con.up {
 	max-height: 72px;
 	display: -webkit-box;
@@ -2043,11 +1951,7 @@ footer.mui-bar.mui-bar-tab {
 	font-size: 16px;
 	font-weight: bold;
 	margin-right: 60px;
-	padding: 3px 0;
 	line-height: 24px;
-}
-.roomInfo>div:first-child a:after {
-	color: #8e9293;
 }
 .roomInfo>div:first-child>span {
 	color: #8e9293;
@@ -2057,45 +1961,18 @@ footer.mui-bar.mui-bar-tab {
 	font-size: 12px;
 	line-height: 30px;
 }
-.roomInfo>div:first-child>p {
-	color: #8e9293;
-	position: absolute;
-	top: 6px;
-	right: 3%;
-	font-size: 12px;
-	line-height: 30px;
-}
-.roomInfo>div:first-child>p>span {
-	padding-right: 17px;
-}
-.roomInfo>div:first-child>p>span:after {
-	display: inline-block;
-	content: "";
-	height: 1em;
-	width: 1px;
-	position: absolute;
-	top: 50%;
-	right: 8px;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-	background-color: #8e9293;
-}
 .roomInfo>div.time {
 	color: #3c4854;
 	font-size: 12px;
-	margin: 10px 0 14px ;
+	margin: 8px 0 10px ;
 }
 .roomInfo>div.time>span {
 	float: left;
 	line-height: 19px;
 }
-.roomInfo>div.time>span em {
-	display: inline-block;
-	line-height: 19px;
-}
 .roomInfo>div.time>span:nth-child(2) {
 	width: 24%;
-	padding-top: 19px;
+	padding-top: 17px;
 	text-align: center;
 }
 .roomInfo>div.time>span:nth-child(2):after {
@@ -2104,25 +1981,23 @@ footer.mui-bar.mui-bar-tab {
 	height: 1px;
 	width: 89%;
 	position: absolute;
-	top: 28px;
+	top: 26px;
 	left: 50%;
 	transform: translateX(-50%);
 	-webkit-transform: translateX(-50%);
-	background-color: #b7b7b7;
+	background-color: #8e9293;
 }
 .roomInfo>div.time>span>i {
 	display: block;
 }
 .roomInfo>div.time>span:nth-child(2)>i{
 	display: inline-block;
+	border-radius: 10px;
 	width: 50%;
-	min-width: 45px;
+	min-width: 50px;
 	position: relative;
 	z-index: 1;
-	font-size: 11px;
-	line-height: 17px;
-	border-radius: 9px;
-	border: 1px solid #b7b7b7;
+	border: 1px solid #8e9293;
 	background-color: #ffffff;
 }
 .roomInfo>div:nth-child(3) {

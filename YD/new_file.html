@@ -1,44 +1,20 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<script src="js/jquery-1.11.2.min.js"></script>
-		<script src="jq/html2canvas.js"></script>
-		<script src="jq/canvas2image.js"></script>
-	</head>
-	<body>
 
-
-
-<div id="wrapper" style="background-color: white"; width="1000px" height="900px">
-
-<img src="images/a.jpg" width= "900px">
-tecno diagnostics
-
-
-</div><!---- End Wrapper ---->
-
-
-<br/>
-<input type="button" id="btnSave" value="Save PNG"/>
-<div id="img-out"></div>
-
-
-<script type="text/javascript">
-$(function() { 
-  $("#btnSave").click(function() { 
-    html2canvas($("#wrapper"), {
-        onrendered: function(canvas) {
-            // Convert and download as image 
-            Canvas2Image.saveAsPNG(canvas); 
-            $("#img-out").append(canvas);
-            // Clean up 
-            //document.body.removeChild(canvas);
-        }
-    });
-});
-}); 
-</script>
-	</body>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+	<figure>
+    <img src="http://localhost:8080/jsp/wap/static/images/resourc3.png" onerror="nofind();">
+	</figure>
+	<script type="text/javascript">
+		function nofind(){
+			var img=event.srcElement;
+			img.src="http://localhost:8080/jsp/wap/static/images/pic-08.jpg";
+			img.οnerrοr=null;
+		}
+	</script>
+</body>
 </html>

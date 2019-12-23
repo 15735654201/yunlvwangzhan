@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>搜索列表</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/style.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">//rem和页面窗口改变
+			!function(e,t){function n(){var t=o.getBoundingClientRect().width;n=t/18.75;o.style.fontSize=n+"px",d.rem=e.rem=n}var i,r=e.document,o=r.documentElement,a=0,d=t.flexible||(t.flexible={}),s=e.navigator.appVersion.match(/iphone/gi),m=e.navigator.appVersion.match(/UCBrowser/gi),p=e.devicePixelRatio;a=s?p>=3&&(!a||a>=3)?3:p>=2&&(!a||a>=2)?2:1:1,o.setAttribute("data-dpr",a),"complete"===r.readyState?r.body.style.fontSize="12px":r.addEventListener("DOMContentLoaded",function(){r.body.style.fontSize="12px"},!1);var c="onorientationchange"in window?"orientationchange":"resize";if(e.addEventListener(c,function(){clearTimeout(i),i=setTimeout(n,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),n(),d.dpr=e.dpr=a,d.refreshRem=n,d.rem2px=function(e){var t=parseFloat(e)*this.rem;return"string"==typeof e&&e.match(/rem$/)&&(t+="px"),t},d.px2rem=function(e){var t=parseFloat(e)/this.rem;return"string"==typeof e&&e.match(/px$/)&&(t+="rem"),t},s&&!m){var l="notHairlines",u=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/),f=parseInt(u[1],10);f>=8&&(l="hairlines"),document.documentElement.classList.add(l)}var width=$(window).width();window.onresize=function(){if($(window).width()!=width){window.location.reload();}}}(window,window.lib||(window.lib={}));
+		</script>
+		<style type="text/css">
+			.header-search .header-search-text {background-color: #f4f4f4;color: #666666;}
+			.tab-index  {position: fixed!important;top:44px;box-shadow: 0 -1px 0 0 #dbdbdb inset;z-index: 10;background-color: #ffffff;}
+			.itemBox+.itemBox {border-top: 10px solid #f3f3f3;}
+			#headerSearch .mui-bar.mui-bar-nav {padding: 0;border-bottom: 1px solid #dbdbdb;}
+			#headerSearch .mui-bar.mui-bar-nav .mui-pull-left {width: 12%;text-align: center;}
+			#headerSearch .header-search {left: 12%;}
+			#headerSearch .historyTitle {color: #000000;font-size: 14px;line-height: 24px;margin-top: 5px;}
+			#headerSearch .historyTitle .delete {width: 24px;text-align: center;}
+			#headerSearch .historyTitle span {vertical-align: top;}
+			#headerSearch .history li{
+				float: left;
+				color: #666666;
+				font-size: 14px; 
+				padding: 0 10px;
+				border-radius: 4px;
+				margin: 5px 10px 5px 0;
+				line-height: 24px;
+				background-color: #f4f4f4;
+			}
+		</style>
+	</head>
+	<body class="bg-fff">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left" style="color: #7f7f7f;"></a>
+			<div class="header-search">
+				<a href="javascript:;" onclick="headerSearch(this);" style="display: block;">
+					<input type="text" class="header-search-text" name="" readonly="readonly" value="12" placeholder="景点/目的地/酒店/门票" />
+					<span class="header-search-btn mui-icon mui-icon-search"></span>
+				</a>
+			</div>
+			<a class="mui-icon mui-pull-right iconfont" style="color: #7f7f7f;font-size: 30px;padding: 0;line-height: 44px;" href="">&#xe670;</a>
+		</header>
+		<section class="mui-content" style="padding-top: 82px;">
+			<div class="tab-index mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted p0_4">
+			    <div class="mui-scroll">
+					<a class="mui-control-item mui-active" data-type="item0">周边游</a>
+					<a class="mui-control-item" data-type="item1">门票</a>
+					<a class="mui-control-item" data-type="item2">国内游</a>
+					<a class="mui-control-item" data-type="item3">赴台游</a>
+					<a class="mui-control-item" data-type="item4">出境游</a>
+					<a class="mui-control-item" data-type="item5">向导</a>
+					<a class="mui-control-item" data-type="item6">酒店</a>
+					<a class="mui-control-item" data-type="item7">签证</a>
+			    </div>
+			</div>
+			<div class="itemBox" id="item0">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">周边游</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item1">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">门票</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item2">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">国内游</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item3">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">赴台游</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item4">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">出境游</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item5">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">向导</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item6">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">酒店</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="itemBox" id="item7">
+				<div class="p0_4">
+					<div class="title-index clearfix">
+						<h4 class="fl">签证</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会风格非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- 搜索 -->
+		<section id="headerSearch" class="search-box mui-popover mui-popover-action mui-popover-bottom">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-icon mui-icon-arrowleft mui-pull-left" style="color: #7f7f7f;" href="#headerSearch"></a>
+				<div class="header-search">
+					<form id="searchForm" action="search.html" method="">
+						<span class="mui-icon mui-icon-closeempty empty"></span>
+						<input type="text" class="header-search-text" name="" id="searchText" value="" placeholder="景点/目的地/酒店/门票" />
+						<button type="submit" class="header-search-btn mui-icon mui-icon-search"></button>
+					</form>
+				</div>
+				<a class="mui-pull-right searchButton" href="javascript:$('#searchForm').submit();">搜索</a>
+			</header>
+			<div class="mui-scroll-wrapper" style="margin: 0;padding: 44px 0;">
+				<div class="mui-scroll p0_4">
+					<div class="historyTitle">
+						<span class="historySearch">历史搜索</span>
+						<span class="iconfont delete">&#xe771;</span>
+					</div>
+					<ul class="history clearfix">
+						<li>安西</li>
+						<li>安西</li>
+						<li>安西</li>
+						<li>安西安西安西安西安西安西安西安西安西安西</li>
+						<li>安西安西安西安西安西安西安西安西安西安西安西安西安西安西安西安西安西</li>
+					</ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function headerSearch(obj){
+					mui('#headerSearch').popover('toggle');
+					$("#searchText").val($(obj).find("input").val());
+					$("#searchText").focus();
+					$("#searchText").trigger("input");
+				}
+				//清空搜索框
+				$("#searchText").bind('input propertychange', function() {
+					if($(this).val()!=""){
+						$(this).prev(".empty").fadeIn(200);
+					}else {
+						$(this).prev(".empty").fadeOut(200);
+					}
+				});
+				$(".empty").on("tap",function(){
+					$(this).next("input").val("");
+					$(this).fadeOut(200);
+				});
+				//点击历史记录
+				$(".history").on("click","li",function(){
+					$("#searchText").val($(this).text());
+					$("#searchForm").submit();
+				});
+			</script>
+		</section>
+		<script type="text/javascript">
+			var deceleration = mui.os.ios?0.001:0.0006;
+			// alert(deceleration);
+			mui('.mui-scroll-wrapper').scroll({bounce: false,deceleration: deceleration});
+			var tabIndex = mui('.mui-scroll-wrapper.tab-index').scroll();
+			var Height = $(document).height()-$(window).height();
+			$(".tab-index .mui-control-item").each(function(index,item){
+				$(item).on("tap",function(){
+					tab($(this));
+					var obj = $(this).attr("data-type");
+					var top = $("#"+obj).get(0).offsetTop-82;
+					if(Height<top){
+						top = Height;
+					}
+					$(document).scrollTop(top);
+					
+				});
+			});
+			function tab(obj){
+				obj.addClass("mui-active").siblings().removeClass("mui-active");
+				var n = obj.parent().width()-obj.parents(".tab-index").width(),
+					m = obj.position().left-((obj.parents(".tab-index").width()-obj.width())/2);
+				if(n>0){
+					if(m>0 && m<n)tabIndex.scrollTo(-m,0,1000);
+					else if(m<0)tabIndex.scrollTo(0,0,1000);
+					else if(m>n)tabIndex.scrollTo(-n,0,1000);
+				}
+			}
+			var x=$(document).scrollTop();
+			$(window).scroll(function(){
+				var scrollTop = $(document).scrollTop();
+				if(x!=scrollTop){
+					x=scrollTop;
+					var obj;
+					$(".itemBox").each(function(index,item){
+						if(scrollTop>=item.offsetTop-82){
+							obj = $(".mui-control-item[data-type='"+$(item).attr("id")+"']");
+						}
+					});
+					tab(obj);
+				}
+			});
+		</script>
+	</body>
+</html>

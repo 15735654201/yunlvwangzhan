@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<title>首页</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="format-detection" content="telephone=no, email=no"/>
+		<meta name="author" content="">
+		<meta name="keywords" content=""/>
+		<meta name="description" content=""/>
+		<meta name="robots" content="all"/>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/global.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/yunlv.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<script src="../js/jquery-1.11.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../jq/jquery-migrate-1.2.1.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/style.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">//rem和页面窗口改变
+			!function(e,t){function n(){var t=o.getBoundingClientRect().width;n=t/18.75;o.style.fontSize=n+"px",d.rem=e.rem=n}var i,r=e.document,o=r.documentElement,a=0,d=t.flexible||(t.flexible={}),s=e.navigator.appVersion.match(/iphone/gi),m=e.navigator.appVersion.match(/UCBrowser/gi),p=e.devicePixelRatio;a=s?p>=3&&(!a||a>=3)?3:p>=2&&(!a||a>=2)?2:1:1,o.setAttribute("data-dpr",a),"complete"===r.readyState?r.body.style.fontSize="12px":r.addEventListener("DOMContentLoaded",function(){r.body.style.fontSize="12px"},!1);var c="onorientationchange"in window?"orientationchange":"resize";if(e.addEventListener(c,function(){clearTimeout(i),i=setTimeout(n,300)},!1),e.addEventListener("pageshow",function(e){e.persisted&&(clearTimeout(i),i=setTimeout(n,300))},!1),n(),d.dpr=e.dpr=a,d.refreshRem=n,d.rem2px=function(e){var t=parseFloat(e)*this.rem;return"string"==typeof e&&e.match(/rem$/)&&(t+="px"),t},d.px2rem=function(e){var t=parseFloat(e)/this.rem;return"string"==typeof e&&e.match(/px$/)&&(t+="rem"),t},s&&!m){var l="notHairlines",u=navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/),f=parseInt(u[1],10);f>=8&&(l="hairlines"),document.documentElement.classList.add(l)}var width=$(window).width();window.onresize=function(){if($(window).width()!=width){window.location.reload();}}}(window,window.lib||(window.lib={}));
+		</script>
+		<script src="../js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/mui.pullToRefresh.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#headerSearch .mui-bar.mui-bar-nav {padding: 0;border-bottom: 1px solid #dbdbdb;}
+			#headerSearch .mui-bar.mui-bar-nav .mui-pull-left {width: 12%;text-align: center;}
+			#headerSearch .header-search {left: 12%;}
+			#headerSearch .header-search .header-search-text {background-color: #f4f4f4;}
+			#headerSearch .historyTitle {color: #000000;font-size: 14px;line-height: 24px;margin-top: 5px;}
+			#headerSearch .historyTitle span {vertical-align: top;}
+			#headerSearch .historyTitle .delete {width: 24px;text-align: center;}
+			#headerSearch .history li{
+				float: left;
+				color: #666666;
+				font-size: 14px; 
+				padding: 0 10px;
+				border-radius: 4px;
+				margin: 5px 10px 5px 0;
+				line-height: 24px;
+				background-color: #f4f4f4;
+			}
+		</style>
+	</head>
+	<body class="index" style="background-color: #f9f9f9;">
+		<header class="mui-bar mui-bar-nav">
+			<!-- <div class="header-search">
+				<form action="" method="">
+					<input type="hidden" name="" id="world" value="0" />
+					<input type="text" class="header-search-text" name="" id="searchText" value="" placeholder="" />
+					<button type="submit" class="header-search-btn mui-icon mui-icon-search"></button>
+				</form>
+			</div> -->
+			<div class="header-search">
+				<a href="javascript:;" onclick="headerSearch(this);" style="display: block;">
+					<input type="text" class="header-search-text" name="" value="" readonly="readonly" placeholder="景点/目的地/酒店/门票" />
+					<span class="header-search-btn mui-icon mui-icon-search"></span>
+				</a>
+			</div>
+			<a class="mui-icon mui-pull-right" href=""></a>
+		</header>
+		<footer class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#">
+				<span class="mui-icon iconfont">&#xe61f;</span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#">
+				<span class="mui-icon iconfont">&#xe6f8;</span>
+				<span class="mui-tab-label">目的地</span>
+			</a>
+			<a class="mui-tab-item" href="#">
+				<span class="mui-icon iconfont">&#xe73c;</span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</footer>
+		<div id="tab"></div>
+		<section id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll bg-fff">
+				<!-- 轮播 -->
+				<div class="carousel-index">
+					<div id="slider" class="mui-slider">
+						<div class="mui-slider-group mui-slider-loop">
+							<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:;">
+									<img src="../images/1.jpg">
+								</a>
+							</div>
+							<!-- 第一张 -->
+							<div class="mui-slider-item">
+								<a href="javascript:;">
+									<img src="../images/1.jpg">
+								</a>
+							</div>
+							<!-- 第二张 -->
+							<div class="mui-slider-item">
+								<a href="javascript:;">
+									<img src="../images/1.jpg">
+								</a>
+							</div>
+							<!-- 第三张 -->
+							<div class="mui-slider-item">
+								<a href="javascript:;">
+									<img src="../images/1.jpg">
+								</a>
+							</div>
+							<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+							<div class="mui-slider-item mui-slider-item-duplicate">
+								<a href="javascript:;">
+									<img src="../images/1.jpg">
+								</a>
+							</div>
+						</div>
+						<div class="mui-slider-indicator">
+							<div class="mui-indicator mui-active"></div>
+							<div class="mui-indicator"></div>
+							<div class="mui-indicator"></div>
+						</div>
+					</div>
+				</div>
+				<!-- 一级导航 -->
+				<div class="item-index">
+					<div id="item-index" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<p>景点门票</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>酒店住宿</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>当地向导</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>签证办理</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>定制游</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>定制游</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>定制游</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>定制游</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>定制游</p>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<p>定制游</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="item-scroll">
+						<div class="item-scrollbar"></div>
+					</div>
+				</div>
+				<!-- 二级导航-1 -->
+				<div class="table-index p0_4">
+					<table border="0" width="100%">
+						<tr>
+							<td>
+								<a href="">
+									<h4>出境游</h4>
+									<p>玩遍全球</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>国内游</h4>
+									<p>美景如画</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>周边游</h4>
+									<p>乐享周末</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>赴台游</h4>
+									<p>精选线路</p>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="">
+									<h4>出境游</h4>
+									<p>玩遍全球</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>国内游</h4>
+									<p>美景如画</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>周边游</h4>
+									<p>乐享周末</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>赴台游</h4>
+									<p>精选线路</p>
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="">
+									<h4>出境游</h4>
+									<p>玩遍全球</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>国内游</h4>
+									<p>美景如画</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>周边游</h4>
+									<p>乐享周末</p>
+								</a>
+							</td>
+							<td>
+								<a href="">
+									<h4>赴台游游</h4>
+									<p>精选线路路</p>
+								</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- 二级导航-2 -->
+				<div class="table-index2 p0_4">
+					<ul class="clearfix">
+						<li>
+							<a href="">
+								<p>出境游游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<p>出境游</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+				<!-- 广告 -->
+				<div class="advert-index p0_4">
+					<a class="clearfix" href="">
+						<img src="../images/b.jpg" alt="">
+					</a>
+				</div>
+				<!-- 优惠 -->
+				<div class="preferential-index p0_4 brt">
+					<div class="title-index clearfix">
+						<h4 class="fl">超值特惠</h4>
+						<a class="fr" href="">虽然有钱也要精打细算</a>
+					</div>
+					<div class="mui-row">
+						<div class="mui-col-xs-6 mui-col-sm-6 preferential-left">
+							<a href="javascript:;">
+								<div class="slider-box">
+									<span>西安</span>
+									<div class="slider-img">
+										<img src="../images/b.jpg">
+									</div>
+									<div class="slider-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会</h5>
+										<div class="slider-price">
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+						<div class="mui-col-xs-6 mui-col-sm-6 preferential-right">
+							<a href="">
+								<div class="preferential-card">
+									<img src="../images/b.jpg" alt="">
+									<div class="card-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</div>
+							</a>
+							<a href="">
+								<div class="preferential-card">
+									<img src="../images/b.jpg" alt="">
+									<div class="card-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+				<!-- 目的地推荐 -->
+				<div class="p0_4 brt">
+					<div class="title-index clearfix">
+						<h4 class="fl">目的地推荐</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="mui-slider destination-index">
+					<div class="p0_4">
+						<div class="destination-tab mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+							<a class="mui-control-item mui-active" href="#item1">出境游</a>
+							<a class="mui-control-item" href="#item2">国内游</a>
+							<a class="mui-control-item" href="#item3">周边游</a>
+						</div>
+						<div class="mui-slider-progress-bar mui-col-xs-4"></div>
+					</div>
+					<div class="destination-con mui-slider-group">
+						<div id="item1" class="mui-slider-item mui-control-content mui-active">
+							<div class="destination-table">
+									<table border="0" width="100%">
+										<tr>
+											<td>
+												<a href="">
+													<h4>出境游</h4>
+												</a>
+											</td>
+											<td>
+												<a href="">
+													<h4>国内游</h4>
+												</a>
+											</td>
+											<td>
+												<a href="">
+													<h4>周边游</h4>
+												</a>
+											</td>
+										</tr>
+									</table>
+								</div>
+								<ul class="destination-ul clearfix">
+									<li>
+										<a href="">上海上海上</a>
+									</li>
+									<li>
+										<a href="">上海</a>
+									</li>
+									<li>
+										<a href="">上海</a>
+									</li>
+									<li>
+										<a href="">上海</a>
+									</li>
+								</ul>
+							</div>
+						<div id="item2" class="mui-slider-item mui-control-content">
+							<div class="destination-table">
+								<table border="0" width="100%">
+									<tr>
+										<td>
+											<a href="">
+												<h4>出境游出境游出境游出境游</h4>
+											</a>
+										</td>
+										<td>
+											<a href="">
+												<h4>国内游</h4>
+											</a>
+										</td>
+										<td>
+											<a href="">
+												<h4>周边游</h4>
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<ul class="destination-ul clearfix">
+								<li>
+									<a href="">上海上海上</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+							</ul>
+						</div>
+						<div id="item3" class="mui-slider-item mui-control-content">
+							<div class="destination-table">
+								<table border="0" width="100%">
+									<tr>
+										<td>
+											<a href="">
+												<h4>出境游</h4>
+											</a>
+										</td>
+										<td>
+											<a href="">
+												<h4>国内游</h4>
+											</a>
+										</td>
+										<td>
+											<a href="">
+												<h4>周边游</h4>
+											</a>
+										</td>
+									</tr>
+								</table>
+							</div>
+							<ul class="destination-ul clearfix">
+								<li>
+									<a href="">上海上海上</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+								<li>
+									<a href="">上海</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 广告 -->
+				<div class="advert-index p0_4">
+					<a class="clearfix" href="">
+						<img src="../images/b.jpg" alt="">
+					</a>
+				</div>
+				<!-- 店长推荐 -->
+				<div class="p0_4 brt">
+					<div class="title-index clearfix">
+						<h4 class="fl">店长推荐</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_1">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 经典一日游 -->
+				<div class="p0_4 brt">
+					<div class="title-index clearfix">
+						<h4 class="fl">经典一日游</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_0">
+					<div class="p0_4">
+						<ul>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 经典一日游 -->
+				<div class="p0_4 brt">
+					<div class="title-index clearfix">
+						<h4 class="fl">经典一日游</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_2">
+					<div class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<ul class="mui-scroll">
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- 热门线路 -->
+				<div class="p0_4 brt">
+					<div class="title-index clearfix">
+						<h4 class="fl">热门线路</h4>
+						<a class="fr" href="">查看更多</a>
+					</div>
+				</div>
+				<div class="templet_3">
+					<div class="p0_4">
+						<ul>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							
+							<li>
+								<a href="">
+									<span>西安｜跟团游</span>
+									<div>
+										<img src="../images/b.jpg" >
+									</div>
+									<div class="templet-con">
+										<h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台非方 湖广会能不能把</h5>
+										<div>
+											<span class="qi qian">42535.0</span>
+											<span>已售333</span>
+										</div>
+									</div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--  -->
+				<div class="tab-box pr">
+					<ul id="data-index" class="tab-con p0_4 mui-row"></ul>
+					<div class="tab-index mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted p0_4">
+					    <div class="mui-scroll">
+							<a class="mui-control-item mui-active" data-type="0">酒店</a>
+							<a class="mui-control-item" data-type="1">门票</a>
+							<a class="mui-control-item" data-type="2">周边游</a>
+							<a class="mui-control-item" data-type="3">出境游</a>
+							<a class="mui-control-item" data-type="4">门票</a>
+							<a class="mui-control-item" data-type="5">周边游</a>
+							<a class="mui-control-item" data-type="6">出境游</a>
+							<a class="mui-control-item" data-type="7">周边游</a>
+							<a class="mui-control-item" data-type="8">出境游</a>
+					    </div>
+					</div>
+				</div>
+		</section>
+		
+		<!-- 搜索 -->
+		<section id="headerSearch" class="search-box mui-popover mui-popover-action mui-popover-bottom">
+			<header class="mui-bar mui-bar-nav">
+				<a class="mui-icon mui-icon-arrowleft mui-pull-left" style="color: #7f7f7f;" href="#headerSearch"></a>
+				<div class="header-search">
+					<form id="searchForm" action="search.html" method="">
+						<span class="mui-icon mui-icon-closeempty empty"></span>
+						<input type="text" class="header-search-text" name="" id="searchText" value="" placeholder="景点/目的地/酒店/门票" />
+						<button type="submit" class="header-search-btn mui-icon mui-icon-search"></button>
+					</form>
+				</div>
+				<a class="mui-pull-right searchButton" href="javascript:$('#searchForm').submit();">搜索</a>
+			</header>
+			<div class="mui-scroll-wrapper" style="margin: 0;padding: 44px 0;">
+				<div class="mui-scroll p0_4">
+					<div class="historyTitle">
+						<span class="historySearch">历史搜索</span>
+						<span class="iconfont delete">&#xe771;</span>
+					</div>
+					<ul class="history clearfix">
+						<li>安西</li>
+						<li>安西</li>
+						<li>安西</li>
+						<li>安西安西安西安西安西安西安西安西安西安西</li>
+						<li>安西安西安西安西安西安西安西安西安西安西安西安西安西安西安西安西安西</li>
+					</ul>
+				</div>
+			</div>
+			<script type="text/javascript">
+				function headerSearch(obj){
+					mui('#headerSearch').popover('toggle');
+					$("#searchText").val($(obj).find("input").val());
+					setTimeout(function(){
+						$("#searchText").focus();
+						$("#searchText").trigger("input");
+					},300);
+				}
+				//清空搜索框
+				$("#searchText").bind('input propertychange', function() {
+					if($(this).val()!=""){
+						$(this).prev(".empty").fadeIn(200);
+					}else {
+						$(this).prev(".empty").fadeOut(200);
+					}
+				});
+				$(".empty").on("tap",function(){
+					$(this).next("input").val("");
+					$(this).fadeOut(200);
+				});
+				//点击历史记录
+				$(".history").on("click","li",function(){
+					$("#searchText").val($(this).text());
+					$("#searchForm").submit();
+				});
+			</script>
+			
+		</section>
+		
+		<section class="sideRight">
+			<ul>
+				<!-- 会员 -->
+				<li>
+					<a class="Orange" href="">
+						<i class="iconfont">&#xe654;</i>
+						<span>会员</span>
+					</a>
+				</li>
+				<!-- 客服 -->
+				<li>
+					<a class="Purple" href="#customerService">
+						<i class="iconfont">&#xe63c;</i>
+						<span>客服</span>
+					</a>
+				</li>
+			</ul>
+		</section>
+		<!-- 客服 -->
+		<section id="customerService" class="ifame-box mui-popover mui-popover-action">
+			<h4 class="borderShadow f-14">山西省太原市四季风有限公司</h4>
+			<span class="iconfont c-fff cha" onclick="mui('#customerService').popover('toggle');">&#xe701;</span>
+			<div class="ifame-service">
+				<div class="img-box">
+					<img src="../images/b.jpg" />
+				</div>
+				<p><span>四季风旅游公司娄烦店秦永计四季风旅游公司娄烦店秦永计</span></p>
+				<ul>
+					<li>
+						<span>姓名：</span>
+						<p>秦永计</p></li>
+					<li>
+						<span>电话：</span>
+						<p>
+							<a href="tel:18635689639">18635689639</a>
+						</p>
+					</li>
+					<li>
+						<span>地址：</span>
+						<p>山西省太原市四季风有限公司</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<script type="text/javascript">
+			document.body.addEventListener('touchmove', function (e) {
+				e.preventDefault()
+			}, {passive: false});
+			
+			$(function(){
+				//轮播
+				var slider = mui("#slider");
+				slider.slider({interval: 2000});
+				
+				var deceleration = mui.os.ios?0.001:0.0006;
+				// alert(deceleration);
+				mui('.mui-scroll-wrapper:not(#pullrefresh)').scroll({bounce: false,deceleration: deceleration});
+				var tabIndex = mui('.mui-scroll-wrapper.tab-index').scroll();
+				var domIndex = mui('#pullrefresh.mui-scroll-wrapper').scroll({deceleration: deceleration});
+				var objTop = $(".tab-index").eq(0).offset().top;
+				document.querySelector('#pullrefresh.mui-scroll-wrapper').addEventListener('scroll', function (e) {
+					var top = domIndex.y;
+					if(top<=0){
+						var top = Math.abs(top);
+						if($(".index2").length>0){
+							ihAlpha = 100;//从透明到不透明的滑动高度
+							iAlpha = 1;//透明度
+							Alpha = (top / ihAlpha < iAlpha) ? top / ihAlpha : iAlpha;
+							document.querySelector('.index2 header').style.backgroundColor = "rgba(54, 124, 242," + Alpha + ")";//前边三组数字是用来设置背景颜色的
+						}
+						
+						top = Math.abs(top)+44;
+							// console.log(top,objTop);
+						if(top>=objTop){
+							$("#tab").append($(".tab-index"));
+						}else {
+							$(".tab-box").append($("#tab>.tab-index"));
+						}
+					}
+				});
+				// 上拉加载
+				var obj = document.querySelector("#pullrefresh>.mui-scroll");
+				var pageNumber = 0,
+					type = $(".tab-index .mui-control-item.mui-active").attr("data-type");
+				var pullToRefresh = mui(obj).pullToRefresh({
+					up: {
+						contentrefresh: '<div class="mui-pull-loading mui-icon mui-spinner"></div>正在加载...',
+						callback: function() {
+							var self = this;
+							setTimeout(function() {
+									self.endPullUpToRefresh(createFragment(type, pageNumber));
+							}, 1000);
+						}
+					}
+				});
+				var createFragment = function(type, pageNumber) {
+					var isloadok = false;
+					// $.ajax({ 
+					// 	url: url,
+					// 	type: "post",
+					// 	dataType: "html",
+					// 	async: false,
+					// 	data: {pageNumber: pageNumber, type: type },
+					// 	success: function (data) {
+							// var data = "";
+							var data = '<li class="mui-col-xs-6 mui-col-sm-6"><a href=""><span>西安｜跟团游</span><div><img src="../images/b.jpg" ></div><div class="li-con"><h5>周边一日五台山好会周边一日五台山好会周边一日五台山好会风格周边一日五台</h5><div><span class="qi qian">42535.0</span><span>已售333</span></div></div></a></li>';
+							if (data == "") {
+								isloadok = true;
+								// return false;
+							}else {
+								for (var i = 0; i < 8; i++) {
+									$("#data-index").append(data);
+									pageNumber++;
+								}
+							}
+					// 	},
+					// 	error: function () {
+					// 		isloadok = true;
+					// 	}
+					// });
+					return isloadok;
+				};
+				pullToRefresh.pullUpLoading();
+				
+				$(".tab-index .mui-control-item").each(function(index,item){
+					$(item).on("tap",function(){
+						$(this).addClass("mui-active").siblings().removeClass("mui-active");
+						var n = $(this).parent().width()-$(this).parents(".tab-index").width(),
+							m = $(this).position().left-(($(this).parents(".tab-index").width()-$(this).width())/2);
+						if(n>0){
+							if(m>0 && m<n)tabIndex.scrollTo(-m,0,1000);
+							else if(m<0)tabIndex.scrollTo(0,0,1000);
+							else if(m>n)tabIndex.scrollTo(-n,0,1000);
+						}
+						if($(".tab-index").parent().attr("id")=="tab"){
+							domIndex.scrollTo(0,0-objTop+44,100);
+						}
+						
+						// 上拉加载
+						$("#data-index").empty();
+						pageNumber = 0;
+						type = $(this).attr("data-type");
+						pullToRefresh.refresh(true);
+						pullToRefresh.pullUpLoading();
+					});
+				});
+				
+				var itemObj = document.querySelector("#item-index");
+				var itemIndex = mui('#item-index.mui-scroll-wrapper').scroll();
+				if(itemObj.scrollWidth - itemObj.offsetWidth>1){
+					$(".item-index .item-scroll").show();
+					var scrollbar = document.querySelector(".item-scrollbar");
+					var maxScrollLeft = itemObj.scrollWidth - itemObj.offsetWidth;;
+					document.querySelector('#item-index.mui-scroll-wrapper').addEventListener('scroll', function (e) {
+						var Left = itemIndex.x;
+						if(Left<=0){
+							Left = Math.abs(Left);
+							scrollbar.style.left = Left / maxScrollLeft / 2 * 100 + "%";
+						}
+					});
+				}
+			});
+		</script>
+	</body>
+</html>
